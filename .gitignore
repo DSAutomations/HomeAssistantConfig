@@ -6,6 +6,7 @@
 !*.yaml
 !.gitignore
 !*.md
+!custom_components
 !custom_components/*
 
 # Ignore folders.
@@ -19,4 +20,3 @@ secrets.yaml
 known_devices.yaml
 zones.yaml
 scratch.yaml
-custom_components/zanzito/marcia_lastPrefs

@@ -1,0 +1,8 @@
+{
+"domain": "zanzito",
+"name": "zanzito",
+"documentation": "https://www.example.com",
+"dependencies": ["mqtt"],
+"codeowners": [],
+"requirements": []
+}
