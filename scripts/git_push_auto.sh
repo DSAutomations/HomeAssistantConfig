@@ -10,7 +10,7 @@ cd /home/homeassistant/.homeassistant
 source /srv/homeassistant/bin/activate
 
 git add .
-git commit -m "auto push triggered by HASS UI"
+git commit -m "testing auto push script"
 git push origin master
 
 exit
