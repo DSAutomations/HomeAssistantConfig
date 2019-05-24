@@ -1,0 +1,10 @@
+intents:
+  HangoutsHelp:
+    sentences:
+      - Help
+  GetTstatStatusIntent:
+    sentences:
+      - Thermostat
+  TakeKitchenPic:
+    sentences:
+      - Kitchen

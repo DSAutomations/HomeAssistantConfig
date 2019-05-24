@@ -1,0 +1,173 @@
+telemetry:
+  name: Device telemetry
+  view: yes
+  entities:
+  - group.dphone
+  - group.mphone
+  - group.ipad
+  - group.samsung_tv
+  - group.system
+  - group.router
+  - history_graph.router_cpu_load
+
+environmental:
+  name: Environmental Info
+  view: yes
+  entities:
+  - climate.thermostat
+  - group.tstat_sensors
+  - group.wunderground_sensors
+
+all_sonoffs:
+  name: Sonoffs
+  view: yes
+  entities:
+  - group.sonoff1
+  - group.sonoff2
+
+system:
+  name: System Info
+  entities:
+  - sensor.ssl_expiration
+  - sensor.pi_used_space
+  - sensor.pi_cpu_load_1
+  - sensor.pi_cpu_load_5
+  - sensor.pi_cpu_load_15
+  - sensor.load_1m
+  - sensor.load_5m
+  - sensor.load_15m
+  - sensor.disk_free
+  - sensor.disk_use
+  - sensor.since_last_boot
+  - sensor.processor_use
+  - script.update_config
+
+
+router:
+  name: Router stats
+  entities:
+  - sensor.router_uptime_pretty
+  - sensor.router_uptime_hours
+  - sensor.router_uptime_minutes
+  - sensor.router_cpu_load_1
+  - sensor.router_cpu_load_5
+  - sensor.router_cpu_load_15
+  - sensor.if_counter_eth0_in
+  - sensor.if_counter_eth0_out
+
+
+ipad:
+  name: iPads
+  entities:
+  - sensor.jesus_battery_level
+  - sensor.jesus_battery_state
+  - sensor.ipad_battery_level
+  - sensor.ipad_battery_state
+
+samsung_tv:
+  name: Samsung TV
+  entities:
+  - binary_sensor.multi_samsung_tv
+  - binary_sensor.ping_samsung_tv
+  - device_tracker.samsung_tv
+
+dphone:
+  name: Dylan's Phone
+  entities:
+  - sensor.dphone_battery_level
+  - sensor.dphone_charge_type
+  - sensor.dphone_current_wifi
+
+
+mphone:
+  name: Marcia's Phone
+  entities:
+  - sensor.mphone_battery_level
+  - sensor.mphone_charge_type
+  - sensor.mphone_current_wifi
+
+
+sonoff1:
+  name: Glass Lamp Sonoff
+  entities:
+  - sensor.s1_uptime
+  - sensor.s1_vcc_voltage
+  - sensor.s1_rssi
+  - sensor.s1_restart_reason
+  - sensor.s1_hostname
+  - sensor.s1_ipaddress
+  - sensor.s1_dns
+  - script.net_stats_s1
+  - script.restart_s1
+
+sonoff2:
+  name: Xmas Lights Sonoff
+  entities:
+  - sensor.s2_uptime
+  - sensor.s2_vcc_voltage
+  - sensor.s2_rssi
+  - sensor.s2_restart_reason
+  - sensor.s2_hostname
+  - sensor.s2_ipaddress
+  - sensor.s2_dns
+  - script.net_stats_s2
+  - script.restart_s2
+
+
+tstat_sensors:
+  name: A/C Sensors
+  entities:
+  - sensor.tstat_temp
+  - sensor.tstat_setpoint
+  - sensor.tstat_mode
+  - sensor.tstat_fan
+
+wunderground_sensors:
+  name: Weather Sensors
+  entities:
+  - sun.sun
+  - sensor.moon
+  - sensor.yr_symbol
+
+mail:
+  name: USPS mail
+  entities:
+  - sensor.usps_mail
+  - sensor.usps_packages
+
+zillow:
+  name: Zillow Stuff
+  entities:
+  - sensor.zestimate
+
+ups:
+  name: APC UPS
+  entities:
+  - binary_sensor.ups_online_status
+  - sensor.ups_battery
+  - sensor.ups_battery_voltage
+  - sensor.ups_input_voltage
+  - sensor.ups_load
+  - sensor.ups_time_left
+
+octoprint_status:
+  name: OctoPrint
+  entities:
+  - binary_sensor.octoprint_printing
+  - binary_sensor.octoprint_printing_error
+  - sensor.octoprint_actual_bed_temp
+  - sensor.octoprint_current_state
+  - sensor.octoprint_job_percentage
+  - sensor.octoprint_percent_done
+  - sensor.octoprint_target_bed_temp
+  - sensor.octoprint_temp_bed
+  - sensor.octoprint_temp_nozzle
+  - sensor.octoprint_time_elapsed
+  - sensor.octoprint_time_remaining
+
+led_strip:
+  name: LED Strip
+  view: yes
+  entities:
+  - light.porch_strip
+  - input_number.porch_animation_speed

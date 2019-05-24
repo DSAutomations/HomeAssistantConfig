@@ -1,0 +1,25 @@
+  GetTstatStatusIntent:
+    speech:
+      text: >
+        {%- if states("sensor.tstat_temp") ==  states("sensor.tstat_setpoint") -%}
+          The temperature currently matches the setpoint, which is {{states("sensor.tstat_temp")}} degrees. Operation mode is {{ states("sensor.tstat_mode") }} and fan is {{ states("sensor.tstat_fan") }}
+        {%- else  -%}
+          The thermostat is set to {{states("sensor.tstat_setpoint")}} degrees and the operation mode is {{states("sensor.tstat_mode")}}, the current temperature is {{states("sensor.tstat_temp")}} and the fan is {{states("sensor.tstat_fan")}}
+        {%- endif -%}
+
+  TakeKitchenPic:
+    speech:
+      text: "Grabbing pic from kitchen..."
+    action:
+    - service: shell_command.take_snap_kitchen
+    - delay: '00:00:03'
+    - service: shell_command.grab_snap_kitchen
+    - delay: '00:00:03'
+    - service: hangouts.send_message
+      data:
+        data:
+          image_file: /home/homeassistant/snaptmp/lastsnap.jpg
+        message:
+        - text: Kitchen Cam
+        target:
+        - id: UgwTNXte0rBn_cFSTRR4AaABAagBj8K8Dg

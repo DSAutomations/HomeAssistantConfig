@@ -1,0 +1,44 @@
+- platform: mqtt
+  name: "Glass Lamp"
+  command_topic: "cmnd/sonoff/power"
+  state_topic: "stat/sonoff/POWER1"
+  availability_topic: "tele/sonoff/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: mqtt
+  name: "Xmas Lights"
+  command_topic: "cmnd/xmas/power"
+  state_topic: "stat/xmas/POWER"
+  availability_topic: "tele/xmas/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: mqtt
+  name: "Kitchen Light"
+  command_topic: "cmnd/s3/power"
+  state_topic: "stat/s3/POWER"
+  availability_topic: "tele/s3/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  optimistic: false
+
+- platform: command_line
+  switches:
+    slow_stream:
+      command_on: "ssh pi@192.168.1.145 'bash ~/scripts/streamlean.sh'"
+      command_off: "ssh pi@192.168.1.145 'bash ~/scripts/streamfat.sh'"
+      command_state: "ssh pi@192.168.1.145 'cat /etc/motion/motion.conf' | awk '/^stream_maxrate/ {print $NF}'"
+      value_template: '{{ value == "1" }}'
+      friendly_name: Slow Bitrate Cams

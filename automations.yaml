@@ -1,0 +1,351 @@
+- alias: Lamp on at sunrise
+  id: '1512248274121'
+  trigger:
+  - platform: sun
+    event: sunrise
+  condition: []
+  action:
+  - alias: Turn on lamp
+    service: switch.turn_on
+    data:
+      entity_id: switch.glass_lamp
+- alias: Xmas lights off at 10:30
+  initial_state: 'off'
+  id: '1512248274122'
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  condition: []
+  action:
+  - alias: Turn off xmas lights
+    service: switch.turn_off
+    data:
+      entity_id: switch.xmas_lights
+- alias: Xmas lights on 15 minutes after sunset
+  initial_state: 'off'
+  id: '1512248274123'
+  trigger:
+  - event: sunset
+    offset: 00:15:00
+    platform: sun
+  condition: []
+  action:
+  - alias: Turn off xmas lights
+    data:
+      entity_id: switch.xmas_lights
+    service: switch.turn_on
+- alias: Update notifications
+  id: '1512248123123'
+  trigger:
+  - platform: state
+    entity_id: updater.updater
+  condition: []
+  action:
+    service: notify.d_devices
+    data:
+      title: Message from HASS
+      message: There is a new Home Assistant release available.
+- alias: Stolen Phone Warning
+  action:
+  - data:
+      message: Galaxy Epic has been detected on the wifi!!!
+      title: Stolen Phone!
+    service: notify.ios_dipad
+  condition: []
+  id: '1513895180587'
+  trigger:
+  - entity_id: device_tracker.androidb0e7dbcc837c4cae
+    from: not_home
+    platform: state
+    to: home
+- alias: Morning TV power-on notification
+  action:
+  - data:
+      data:
+        say: grapes
+      message: TV has been powered on
+    service: notify.d_phone
+  - data:
+      message: TV has been powered on
+      title: Mischief Alert!
+    service: notify.d_phone
+  condition:
+  - after: 01:00:00
+    before: '10:00:00'
+    condition: time
+  id: '1514442971407'
+  trigger:
+  - entity_id: binary_sensor.multi_samsung_tv
+    from: 'off'
+    platform: state
+    to: 'on'
+- alias: Marcia Leave work message
+  action:
+  - data:
+      message: Marcia has left work
+      title: Wife Alert!
+    service: notify.d_phone
+  - data:
+      data:
+        say: ''
+      message: marcia has left work
+    service: notify.d_phone
+  condition: []
+  id: '1515015761011'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: marcia_work
+    platform: state
+    to: Away
+- alias: Marcia arrive home message
+  action:
+  - data:
+      data:
+        say: ''
+      message: marcia has arrived at home
+    service: notify.d_phone
+  - data:
+      message: Marcia has arrived at home
+      title: Wife Alert!
+    service: notify.d_phone
+  condition:
+  - after: '16:00:00'
+    before: '22:00:00'
+    condition: time
+  id: '1515016083115'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: Away
+    platform: state
+    to: home
+- alias: Weekend iPad Charge notification
+  action:
+  - data:
+      payload: Your iPad has completed charging
+      topic: zanzito/dphone/notification
+    service: mqtt.publish
+  condition: []
+  id: '1516374649072'
+  trigger:
+  - entity_id: sensor.jesus_battery_state
+    from: Charging
+    platform: state
+    to: Full
+- alias: Dylan Arrives at Work Message
+  id: '1515016084215'
+  trigger:
+  - entity_id: device_tracker.google_maps_106489093926417787729
+    from: Away
+    platform: state
+    to: dylan_work
+  condition:
+  - condition: time
+    after: 06:00:00
+    before: '10:00:00'
+  action:
+  - data:
+      message: >-
+        {{ ["Dylan", "Your husband", "Hubby"] | random}}
+        {{ ["has arrived at", "just got to", "completed his drive to"] | random }}
+        {{["work", "his place of employment", "BMS", "his job"] | random}}
+    service: notify.m_hangouts
+- alias: Wifi notification - D
+  id: '1515016462813'
+  trigger:
+  - platform: state
+    entity_id: device_tracker.google_maps_106489093926417787729
+    from: Away
+    to: home
+    for:
+      minutes: 10
+  condition:
+  - condition: state
+    entity_id: device_tracker.dylans_galaxy_s5
+    state: not_home
+  action:
+  - service: notify.d_hangouts
+    data:
+      title: Wifi Alert!
+      message: Turn on your Wifi!!
+- alias: Wifi notification - M
+  id: '1515016462814'
+  trigger:
+  - platform: state
+    entity_id: device_tracker.google_maps_108665899963604670638
+    from: not_home
+    to: home
+    for:
+      minutes: 10
+  condition:
+  - condition: state
+    entity_id: sensor.mphone_current_wifi
+    state: N/A
+  action:
+  - service: notify.m_phone
+    data:
+      title: Wifi Alert!
+      message: Turn on your Wifi!!
+- alias: M - get home meds alert
+  initial_state: 'off'
+  id: '1515019562814'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  action:
+  - service: notify.m_phone
+    data:
+      message: Take your meds!
+      title: Because you were out...
+  - service: automation.turn_off
+    data:
+      entity_id: automation.m__get_home_meds_alert
+- alias: Print Done Notifications
+  action:
+  - data:
+      data:
+        say: grapes
+      message: print completed
+    service: notify.d_phone
+  - service: notify.d_devices
+    data:
+      message: Print Completed!!
+      title: Printer Alert!
+  condition:
+  id: '1514442989407'
+  trigger:
+  - entity_id: sensor.octoprint_percent_done
+    from: '99'
+    platform: state
+    to: '100'
+- alias: TV off at 8:30
+  initial_state: 'off'
+  id: '1512287374122'
+  trigger:
+  - platform: time
+    at: '20:29:30'
+  condition: []
+  action:
+  - alias: turn off tv
+    service: switch.turn_off
+    data:
+      entity_id: switch.xmas_lights
+- alias: M - out at 8:30
+  action:
+  - data:
+      entity_id: automation.m__get_home_meds_alert
+    service: automation.turn_on
+  - data:
+      message: Meds reminder enabled
+      title: Because you are out...
+    service: notify.m_phone
+  condition:
+  - condition: state
+    entity_id: device_tracker.google_maps_108665899963604670638
+    state: not_home
+  id: '1524094451028'
+  trigger:
+  - at: '20:30:00'
+    platform: time
+- alias: Porch Animation Speed
+  initial_state: true
+  hide_entity: false
+  trigger:
+  - platform: state
+    entity_id: input_number.porch_animation_speed
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: cmnd/mcu1/set
+      payload: '{"transition":{{ trigger.to_state.state | int }}}'
+  id: 7f020fedaece4ea6b200f89586e3a534
+- alias: Dim porch strip @ sunset
+  action:
+  - data:
+      payload:
+        brightness: 75
+      topic: cmnd/mcu1/set
+    service: mqtt.publish
+  condition:
+  - condition: state
+    entity_id: light.porch_strip
+    state: 'ON'
+  id: '1524868776116'
+  trigger:
+  - event: sunset
+    platform: sun
+- alias: Send Pic to hangouts
+  id: '1558216043893'
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - service: shell_command.take_snap_kitchen
+  - delay: 00:00:03
+  - service: shell_command.grab_snap_kitchen
+  - delay: 00:00:03
+  - service: hangouts.send_message
+    data:
+      data:
+        image_file: /home/homeassistant/snaptmp/lastsnap.jpg
+      message:
+      - text: Kitchen Cam
+      target:
+      - id: UgwTNXte0rBn_cFSTRR4AaABAagBj8K8Dg
+- alias: Alexa TTS Test
+  id: '1556847323428'
+  trigger: []
+  condition: []
+  action:
+  - data:
+      data:
+        type: announce
+      message: I like haircuts too, can I have one?
+      target:
+      - media_player.kitchen
+    service: notify.alexa_media
+- alias: Marcia get Home Dinner Reminder
+  action:
+  - delay: 00:03:00
+  - service: notify.m_hangouts
+    data:
+      message: Start cooking dinner now!
+  condition:
+    condition: time
+    after: '14:00:00'
+    before: '18:00:00'
+    weekday:
+    - tue
+    - thu
+  id: '1515015761593'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: not_home
+    platform: state
+    to: home
+- alias: Test - hangouts notifications
+  action:
+  - service: notify.d_hangouts
+    data:
+      message: Marcia has arrived at home
+  condition: []
+  id: '1515016083115'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: not_home
+    platform: state
+    to: home
+- alias: Reconnect Hangouts
+  trigger:
+  - entity_id: sensor.external_ip
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  - condition: template
+    value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
+  action:
+  - service: hangouts.reconnect

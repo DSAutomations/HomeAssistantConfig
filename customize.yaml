@@ -1,0 +1,219 @@
+automation.lamp_on_at_sunrise:
+  friendly_name: Lamp on at Sunrise
+automation.stolen_phone_warning:
+  friendly_name: Stolen phone warning
+automation.update_notifications:
+  friendly_name: HA Update notifications
+automation.xmas_lights_off_at_1030:
+  friendly_name: Xmas lights off at 10:30
+automation.xmas_lights_on_15_minutes_after_sunset:
+  friendly_name: Xmas lighst on 15 minutes after sunset
+binary_sensor.multi_samsung_tv:
+  icon: mdi:television
+  friendly_name: Samsung TV power state
+binary_sensor.ping_samsung_tv:
+  friendly_name: Samsung TV ping state
+climate.thermostat:
+  icon: mdi:air-conditioner
+  friendly_name: Honeywell Thermostat
+device_tracker.38f73d1189e5:
+  friendly_name: Kindle PaperWhite
+device_tracker.6837e91835c1:
+  friendly_name: Amazon Echo
+device_tracker.android3e2f48d5b122aa57:
+  friendly_name: Marcia's Phone
+device_tracker.androidb0e7dbcc837c4cae:
+  friendly_name: old GS1 (uncracked)
+device_tracker.c03896f58227:
+  friendly_name: PS4
+device_tracker.dylans_galaxy_s5:
+  friendly_name: Dylan's GS5
+device_tracker.dylans_ipad:
+  friendly_name: Dylan's iPad (wifi)
+device_tracker.fc65de934416:
+  friendly_name: Amazon Echo Dot
+device_tracker.gateway9c7f47:
+  friendly_name: Honeywell Thermostat (wifi)
+device_tracker.jesus:
+  friendly_name: Dylan's iPad (iCloud)
+device_tracker.m_ipad:
+  friendly_name: Macria's iPad (ha companion)
+device_tracker.macbookpro:
+  friendly_name: MacBook-Pro
+device_tracker.marciapc:
+  friendly_name: Marcia's PC
+device_tracker.marcias_ipad:
+  friendly_name: Marcia's iPad (wifi)
+device_tracker.nexus_player:
+  friendly_name: Nexus Player
+device_tracker.pc00qpr1:
+  friendly_name: Dylan's Work PC
+device_tracker.s30465:
+  hidden: true
+device_tracker.samsung_tv:
+  friendly_name: Samsung TV (wifi)
+device_tracker.xmas3368:
+  hidden: true
+group.all_automations:
+  hidden: true
+group.all_devices:
+  hidden: false
+group.all_scripts:
+  hidden: true
+group.all_sonoffs:
+  friendly_name: Sonoffs
+group.all_switches:
+  friendly_name: All Switches
+group.ipad:
+  friendly_name: iPad telemetry
+group.samsung_tv:
+  friendly_name: Samsung TV
+group.sonoff1:
+  friendly_name: Glass Lamp Sonoff
+group.sonoff2:
+  friendly_name: TV Sonoff
+group.system:
+  friendly_name: System Telemetry
+group.tstat_sensors:
+  friendly_name: A/C Sensors
+group.wunderground_sensors:
+  friendly_name: Weather Sensors
+media_player.nexus_player:
+  friendly_name: Media Player - Nexus
+media_player.samsung_tv_remote:
+  friendly_name: Media Player - Samsung TV
+script.net_stats_s1:
+  friendly_name: Get Network Stats
+script.net_stats_s2:
+  friendly_name: Get Network Stats
+script.restart_s1:
+  friendly_name: Restart Sonoff
+script.restart_s2:
+  friendly_name: Restart Sonoff
+sensor.dphone_barometer:
+  friendly_name: Barometer
+sensor.dphone_battery_level:
+  friendly_name: Battery Level
+sensor.dphone_light_sensor:
+  friendly_name: Light Sensor
+sensor.if_counter_eth0_in:
+  friendly_name: WAN counter - IN
+sensor.if_counter_eth0_out:
+  friendly_name: WAN counter - OUT
+sensor.ipad_battery_level:
+  unit_of_measurement: '% charge'
+sensor.ipad_battery_state:
+  unit_of_measurement: '% charge'
+sensor.moon:
+  friendly_name: Moon
+sensor.octoprint_percent_done:
+  friendly_name: Percent Done
+  icon: mdi:file-percent
+sensor.octoprint_temp_nozzle:
+  friendly_name: Nozzle Temp
+  icon: mdi:fire
+sensor.octoprint_temp_bed:
+  friendly_name: Bed Temp
+  icon: mdi:hotel
+sensor.pi_cpu_load_1:
+  friendly_name: CPU Load - 1 Minute
+sensor.pi_cpu_load_5:
+  friendly_name: CPU Load - 5 Minutes
+sensor.pi_cpu_load_15:
+  friendly_name: CPU Load - 15 Minutes
+sensor.pi_used_space:
+  friendly_name: SD Card used space
+  icon: mdi:harddisk
+sensor.processor_use:
+  unit_of_measurement: '% load'
+sensor.router_cpu_load_1:
+  friendly_name: Load (1m)
+  icon: mdi:memory
+sensor.router_cpu_load_5:
+  friendly_name: Load (5m)
+  icon: mdi:memory
+sensor.router_cpu_load_15:
+  friendly_name: Load (15m)
+  icon: mdi:memory
+sensor.router_uptime_minutes:
+  hidden: true
+sensor.s1_dns:
+  friendly_name: DNS server
+  icon: mdi:earth
+sensor.s1_hostname:
+  friendly_name: Network Hostname
+  icon: mdi:ethernet
+sensor.s1_ipaddress:
+  friendly_name: IP Address
+  icon: mdi:network
+sensor.s1_restart_reason:
+  friendly_name: Restart Reason
+  icon: mdi:rotate-3d
+sensor.s1_rssi:
+  friendly_name: Signal Strength
+  icon: mdi:signal-variant
+sensor.s1_uptime:
+  friendly_name: Uptime
+  icon: mdi:clock-start
+sensor.s1_vcc_voltage:
+  friendly_name: VCC Voltage
+  icon: mdi:chip
+sensor.s2_dns:
+  friendly_name: DNS server
+  icon: mdi:earth
+sensor.s2_hostname:
+  friendly_name: Network Hostname
+  icon: mdi:ethernet
+sensor.s2_ipaddress:
+  friendly_name: IP Address
+  icon: mdi:network
+sensor.s2_restart_reason:
+  friendly_name: Restart Reason
+  icon: mdi:rotate-3d
+sensor.s2_rssi:
+  friendly_name: Signal Strength
+  icon: mdi:signal-variant
+sensor.s2_uptime:
+  friendly_name: Uptime
+  icon: mdi:clock-start
+sensor.s2_vcc_voltage:
+  friendly_name: VCC Voltage
+  icon: mdi:chip
+sensor.ssl_expiration:
+  friendly_name: Days untill SSL expiry
+  icon: mdi:lock
+sensor.tstat_fan:
+  friendly_name: A/C Fan Mode
+sensor.tstat_mode:
+  friendly_name: A/C System Mode
+sensor.tstat_setpoint:
+  friendly_name: A/C Set Point
+sensor.tstat_temp:
+  friendly_name: A/C Inside Temp
+sensor.usps_mail:
+  friendly_name: Mail pieces today
+  icon: mdi:email-outline
+sensor.usps_packages:
+  friendly_name: Packages today
+  icon: mdi:package-variant-closed
+sensor.yr_symbol:
+  friendly_name: YR Symbol
+sensor.zestimate:
+  friendly_name: Zestimate
+sun.sun:
+  friendly_name: Sun State
+switch.glass_lamp:
+  icon: mdi:lamp
+  friendly_name: Glass Lamp
+  emulated_hue_name: glass lamp
+switch.xmas_lights:
+  icon: mdi:television
+  friendly_name: Television
+  emulated_hue_name: television
+switch.kitchen_light:
+  icon: mdi:white-balance-iridescent
+  friendly_name: Kitchen Light
+  emulated_hue_name: kitchen light
+zone.home:
+  friendly_name: Home
+sensor.omg1_temp: {}

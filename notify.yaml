@@ -1,0 +1,52 @@
+
+# DEVICES
+
+- name: d_ipad
+  platform: ios
+  target: '5ee0aedd-97c6-3bcd-91c5-a1c071a6988e'
+
+- name: m_ipad
+  platform: ios
+  target: '2e13ed6b-7232-3921-b684-a91b13e5a5f2'
+
+- name: d_phone
+  platform: zanzito
+  device-name: dphone
+
+- name: livingroom_nexus
+  platform: nfandroidtv
+  host: 192.168.1.112
+
+- name: d_hangouts
+  platform: hangouts
+  default_conversations:
+    - id: UgwTNXte0rBn_cFSTRR4AaABAagBj8K8Dg
+
+- name: m_hangouts
+  platform: hangouts
+  default_conversations:
+    - id: Ugz4geIs-u8jX2ZSSBB4AaABAagBgJC0AQ
+
+
+# DEVICE GROUPS
+
+- name: d_devices
+  platform: group
+  services:
+    - service: d_phone
+    - service: d_hangouts
+    - service: ios_dipad
+
+- name: m_devices
+  platform: group
+  services:
+    - service: m_hangouts
+    - service: ios_m_ipad
+
+- name: all_devices
+  platform: group
+  services:
+    - service: d_phone
+    - service: ios_dipad
+    - service: ios_m_ipad
+    - service: m_phone

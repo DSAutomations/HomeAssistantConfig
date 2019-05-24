@@ -1,0 +1,469 @@
+# Weather prediction
+- platform: yr
+
+# Moon phases
+- platform: moon
+
+- platform: systemmonitor
+  resources:
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+    - type: processor_use
+    - type: last_boot
+    - type: disk_use
+      arg: "/"
+    - type: disk_free
+      arg: "/"
+
+- platform: zestimate
+  api_key: !secret zillowapi
+  zpid:
+    - !secret zillowpid
+
+- platform: apcupsd
+  resources:
+    - linev
+    - loadpct
+    - bcharge
+    - timeleft
+    - battv
+
+- platform: rest
+  resource: https://api.ipify.org?format=json
+  name: External IP
+  value_template: '{{ value_json.ip }}'
+  scan_interval: 10
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'time_utc'
+
+# SNSMP SENSORS ################################################################
+# Router uptime minutes
+- platform: snmp
+  name: router_uptime_minutes
+  host: 192.168.1.1
+  community: home
+  scan_interval: 60
+  baseoid: 1.3.6.1.2.1.25.1.1.0
+  value_template: "{{ (value | int) // 6000 }}"
+  unit_of_measurement: minutes
+
+- platform: snmp
+  name: router_cpu_load_1
+  host: 192.168.1.1
+  community: home
+  scan_interval: 60
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+  value_template: "{{ (value | float) }}"
+  unit_of_measurement: "load"
+
+- platform: snmp
+  name: router_cpu_load_5
+  host: 192.168.1.1
+  community: home
+  scan_interval: 60
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.2
+  value_template: "{{ (value | float) }}"
+  unit_of_measurement: "load"
+
+- platform: snmp
+  name: router_cpu_load_15
+  host: 192.168.1.1
+  community: home
+  scan_interval: 60
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.3
+  value_template: "{{ (value | float) }}"
+  unit_of_measurement: "load"
+
+- platform: snmp
+  name: if_counter_eth0_in
+  host: 192.168.1.1
+  community: home
+  scan_interval: 60
+  baseoid: 1.3.6.1.2.1.2.2.1.10.4
+  value_template: "{{ (value | int) // 1048576 }}"
+  unit_of_measurement: mBytes
+
+- platform: snmp
+  name: if_counter_eth0_out
+  host: 192.168.1.1
+  community: home
+  scan_interval: 60
+  baseoid: 1.3.6.1.2.1.2.2.1.16.4
+  value_template: "{{ (value | int) // 1048576 }}"
+  unit_of_measurement: mBytes
+
+# COMMAND LINE SENSORS #########################################################
+# Days until SSL expiration
+- platform: command_line
+  name: SSL expiration
+  unit_of_measurement: days
+  scan_interval: 10800
+  command: "ssl-cert-check -b -c /etc/letsencrypt/live/mango.nstraub.com/cert.pem | awk '{ print $NF }'"
+
+
+# Percentage of used space remaining on /dev/root
+- platform: command_line
+  name: Pi used space
+  unit_of_measurement: "%"
+  scan_interval: 10800
+  command: "df | grep root | awk '{print $(NF-1)}' | sed 's/%//'"
+
+- platform: command_line
+  name: pi_cpu_load_1
+  unit_of_measurement: "load"
+  scan_interval: 60
+  command: "cat /proc/loadavg | awk '{print $1}'"
+  value_template: "{{ (value | float) }}"
+
+- platform: command_line
+  name: pi_cpu_load_5
+  unit_of_measurement: "load"
+  scan_interval: 60
+  command: "cat /proc/loadavg | awk '{print $2}'"
+  value_template: "{{ (value | float) }}"
+
+- platform: command_line
+  name: pi_cpu_load_15
+  unit_of_measurement: "load"
+  scan_interval: 60
+  command: "cat /proc/loadavg | awk '{print $3}'"
+  value_template: "{{ (value | float) }}"
+
+- platform: command_line
+  name: pi_cpu_temp
+  unit_of_measurement: "°C"
+  scan_interval: 15
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  value_template: "{{ ((value | float) / 1000) | round(1) }}"
+
+
+# MQTT Sensors here! ###########################################################
+- platform: mqtt
+  state_topic: "octoprint/temperature/bed"
+  unit_of_measurement: "°C"
+  name: octoprint_temp_bed
+  value_template: '{{ value_json.actual }}'
+
+- platform: mqtt
+  state_topic: "octoprint/temperature/tool0"
+  unit_of_measurement: "°C"
+  name: octoprint_temp_nozzle
+  value_template: '{{ value_json.actual }}'
+
+- platform: mqtt
+  state_topic: "octoprint/progress/printing"
+  unit_of_measurement: "%"
+  name: octoprint_percent_done
+  value_template: '{{ value_json.progress }}'
+
+- platform: mqtt
+  state_topic: zanzito/dphone/device_info
+  name: dphone_battery_level
+  value_template: "{{ value_json.battery_level }}"
+  unit_of_measurement: "% charge"
+
+- platform: mqtt
+  state_topic: zanzito/dphone/device_info
+  name: dphone_charge_type
+  value_template: "{{ value_json.charge_type }}"
+
+- platform: mqtt
+  state_topic: zanzito/dphone/device_info
+  name: dphone_current_wifi
+  value_template: "{{ value_json.current_wifi }}"
+
+- platform: mqtt
+  state_topic: "stat/sonoff/STATUS5"
+  name: s1_hostname
+  value_template: "{{ value_json.StatusNET.Hostname }}"
+
+- platform: mqtt
+  state_topic: "stat/sonoff/STATUS5"
+  name: s1_ipaddress
+  value_template: "{{ value_json.StatusNET.IPAddress }}"
+
+- platform: mqtt
+  state_topic: "stat/sonoff/STATUS5"
+  name: s1_dns
+  value_template: "{{ value_json.StatusNET.DNSServer }}"
+
+- platform: mqtt
+  state_topic: "tele/sonoff/STATE"
+  name: s1_vcc_voltage
+  value_template: "{{ value_json.Vcc }}"
+  unit_of_measurement: "V"
+
+- platform: mqtt
+  state_topic: "tele/sonoff/STATE"
+  name: s1_rssi
+  value_template: "{{ value_json.Wifi.RSSI }}"
+  unit_of_measurement: "dB"
+
+- platform: mqtt
+  state_topic: "tele/sonoff/STATE"
+  name: s1_uptime
+  value_template: "{{ value_json.Uptime }}"
+  unit_of_measurement: "Hours"
+
+- platform: mqtt
+  state_topic: "tele/sonoff/INFO3"
+  name: s1_restart_reason
+  value_template: "{{ value_json.RestartReason }}"
+
+- platform: mqtt
+  state_topic: "stat/xmas/STATUS5"
+  name: s2_hostname
+  value_template: "{{ value_json.StatusNET.Hostname }}"
+
+- platform: mqtt
+  state_topic: "stat/xmas/STATUS5"
+  name: s2_ipaddress
+  value_template: "{{ value_json.StatusNET.IPAddress }}"
+
+- platform: mqtt
+  state_topic: "stat/xmas/STATUS5"
+  name: s2_dns
+  value_template: "{{ value_json.StatusNET.DNSServer }}"
+
+- platform: mqtt
+  state_topic: "tele/xmas/STATE"
+  name: s2_vcc_voltage
+  value_template: "{{ value_json.Vcc }}"
+  unit_of_measurement: "V"
+
+- platform: mqtt
+  state_topic: "tele/xmas/STATE"
+  name: s2_rssi
+  value_template: "{{ value_json.Wifi.RSSI }}"
+  unit_of_measurement: "dB"
+
+- platform: mqtt
+  state_topic: "tele/xmas/STATE"
+  name: s2_uptime
+  value_template: "{{ value_json.Uptime }}"
+  unit_of_measurement: "Hours"
+
+- platform: mqtt
+  state_topic: "tele/xmas/INFO3"
+  name: s2_restart_reason
+  value_template: "{{ value_json.RestartReason }}"
+
+- platform: mqtt
+  state_topic: "tele/xmas/INFO3"
+  name: s2_restart_reason
+  value_template: "{{ value_json.RestartReason }}"
+
+- platform: mqtt
+  state_topic: "omgateways/OMG1/DHTtoMQTT/dht1"
+  name: OMG1_temp
+  unit_of_measurement: "°C"
+  value_template: "{{ value_json.temp }}"
+
+- platform: mqtt
+  state_topic: "omgateways/OMG2/DHTtoMQTT/dht1"
+  name: OMG2_temp
+  unit_of_measurement: "°C"
+  value_template: "{{ value_json.temp }}"
+
+- platform: mqtt
+  state_topic: "omgateways/OMG3/DHTtoMQTT/dht1"
+  name: OMG3_temp
+  unit_of_measurement: "°C"
+  value_template: "{{ value_json.temp }}"
+
+- platform: mqtt
+  state_topic: "omgateways/OMG1/DHTtoMQTT/dht1"
+  name: OMG1_hum
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.hum }}"
+
+- platform: mqtt
+  state_topic: "omgateways/OMG2/DHTtoMQTT/dht1"
+  name: OMG2_hum
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.hum }}"
+
+- platform: mqtt
+  state_topic: "omgateways/OMG3/DHTtoMQTT/dht1"
+  name: OMG3_hum
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.hum }}"
+
+# TEMPLATE SENSORS #############################################################
+- platform: template
+
+  sensors:
+    # Dylan Phone Stuff #######################################################
+    dphone_battery_level:
+      value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.battery_level}}"
+      entity_id: sensor.time
+      unit_of_measurement: "% charge"
+    dphone_address:
+      value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.address}}"
+      entity_id: sensor.time
+    dphone_last_seen:
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_106489093926417787729.attributes.last_seen.replace(microsecond=0)}}"
+      entity_id: sensor.time
+    dphone_gps_accuracy:
+      value_template: "{{ states.device_tracker.google_maps_106489093926417787729.attributes.gps_accuracy }}"
+      entity_id: sensor.time
+      unit_of_measurement: meters
+
+
+    # Marcia Phone Stuff #######################################################
+    mphone_battery_level:
+      value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.battery_level}}"
+      entity_id: sensor.time
+      unit_of_measurement: "% charge"
+    mphone_address:
+      value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.address}}"
+      entity_id: sensor.time
+    mphone_last_seen:
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_108665899963604670638.attributes.last_seen.replace(microsecond=0)}}"
+      entity_id: sensor.time
+    mphone_gps_accuracy:
+      value_template: "{{ states.device_tracker.google_maps_108665899963604670638.attributes.gps_accuracy }}"
+      entity_id: sensor.time
+      unit_of_measurement: meters
+    mphone_dir_of_travel:
+      entity_id: proximity.marcia_to_home
+      value_template: "{{ states.proximity.marcia_to_home.attributes.dir_of_travel }}"
+
+    # Zillow ###################################################################
+    zest:
+      entity_id: sensor.zestimate
+      value_template: "{{ states.sensor.zestimate.attributes.amount | int }}"
+      friendly_name: Zestimate
+      unit_of_measurement: USD
+    zest_high:
+      entity_id: sensor.zestimate
+      value_template: "{{ states.sensor.zestimate.attributes.valuation_range_high | int }}"
+      friendly_name: Zestimate High
+      unit_of_measurement: USD
+    zest_low:
+      entity_id: sensor.zestimate
+      value_template: "{{ states.sensor.zestimate.attributes.valuation_range_low | int }}"
+      friendly_name: Zestimate Low
+      unit_of_measurement: USD
+
+
+    # Thermostat Stuff #########################################################
+    tstat_temp:
+      value_template: "{{ states.climate.thermostat.attributes.current_temperature }}"
+      friendly_name: 'A/C Temp'
+      entity_id: climate.thermostat
+      unit_of_measurement: '°F'
+    tstat_setpoint:
+      value_template: '{{ states.climate.thermostat.attributes.temperature }}'
+      friendly_name: 'A/C Set Point'
+      entity_id: climate.thermostat
+      unit_of_measurement: '°F'
+    tstat_mode:
+      value_template: '{{ states.climate.thermostat.attributes.operation_mode }}'
+      friendly_name: 'A/C System Mode'
+      entity_id: climate.thermostat
+    tstat_fan:
+      value_template: '{{ states.climate.thermostat.attributes.fan}}'
+      friendly_name: 'A/C Fan Mode'
+      entity_id: climate.thermostat
+
+    # Router Stuff #############################################################
+    router_uptime_hours:
+      friendly_name: Uptime Hours
+      entity_id: sensor.router_uptime_minutes
+      unit_of_measurement: Hours
+      value_template: "{{ (states.sensor.router_uptime_minutes.state | int) // 60 }}"
+    router_uptime_pretty:
+      friendly_name: Router Uptime
+      entity_id: sensor.router_uptime_minutes
+      value_template: >-
+              {% set time = (states.sensor.router_uptime_minutes.state | int) * 60 %}
+              {% set minutes = (((states.sensor.router_uptime_minutes.state | int) % 3600) / 60) | int %}
+              {% set hours = ((time % 86400) / 3600) | int %}
+              {% set days = (time / 86400) | int %}
+
+              {%- if time < 60 -%}
+                Less than a minute
+              {%- else -%}
+                {%- if days > 0 -%}
+                  {%- if days == 1 -%}
+                    1 day
+                  {%- else -%}
+                    {{ days }} days
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if hours > 0 -%}
+                  {%- if days > 0 -%}
+                    {{ ', ' }}
+                  {%- endif -%}
+                  {%- if hours == 1 -%}
+                    1 hour
+                  {%- else -%}
+                    {{ hours }} hours
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if minutes > 0 -%}
+                  {%- if days > 0 or hours > 0 -%}
+                    {{ ', ' }}
+                  {%- endif -%}
+                  {%- if minutes == 1 -%}
+                    1 minute
+                  {%- else -%}
+                    {{ minutes }} minutes
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endif -%}
+
+
+
+
+# I thought this should work, but it doesn't work :(
+
+# - platform: mqtt
+#   sensors:
+#     s1_hostname:
+#       state_topic: "tele/sonoff/INFO2"
+#       value_template: "{{ value_json.Hostname }}"
+#     s1_ipaddress:
+#       state_topic: "tele/sonoff/INFO2"
+#       value_template: "{{ value_json.IPAddress }}"
+#     s1_vcc_voltage:
+#       state_topic: "tele/sonoff/STATE"
+#       value_template: "{{ value_json.Vcc }}"
+#       unit_of_measurement: "V"
+#     s1_rssi:
+#       state_topic: "tele/sonoff/STATE"
+#       value_template: "{{ value_json.Wifi.RSSI }}"
+#       unit_of_measurement: "dB"
+#     s1_uptime:
+#       state_topic: "tele/sonoff/STATE"
+#       value_template: "{{ value_json.Uptime }}"
+#     s1_restart_reason:
+#       state_topic: "tele/sonoff/INFO3"
+#       value_template: "{{ value_json.RestartReason }}"
+#
+#     s2_hostname:
+#       state_topic: "tele/xmas/INFO2"
+#       value_template: "{{ value_json.Hostname }}"
+#     s2_ipaddress:
+#       state_topic: "tele/xmas/INFO2"
+#       value_template: "{{ value_json.IPAddress }}"
+#     s2_vcc_voltage:
+#       state_topic: "tele/xmas/STATE"
+#       value_template: "{{ value_json.Vcc }}"
+#       unit_of_measurement: "V"
+#     s2_rssi:
+#       state_topic: "tele/xmas/STATE"
+#       value_template: "{{ value_json.Wifi.RSSI }}"
+#       unit_of_measurement: "dB"
+#     s2_uptime:
+#       state_topic: "tele/xmas/STATE"
+#       value_template: "{{ value_json.Uptime }}"
+#     s2_restart_reason:
+#       state_topic: "tele/xmas/INFO3"
+#       value_template: "{{ value_json.RestartReason }}"

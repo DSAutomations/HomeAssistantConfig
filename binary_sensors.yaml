@@ -1,0 +1,75 @@
+
+
+
+- platform: ping
+  name: ping_samsung_tv
+  host: 192.168.1.46
+
+- platform: template
+  sensors:
+    multi_samsung_tv:
+      friendly_name: Samsung TV State
+      entity_id:
+        - device_tracker.samsung_tv
+        - binary_sensor.ping_samsung_tv
+      value_template: >-
+        {{ is_state("device_tracker.samsung_tv", "home")
+        or is_state("binary_sensor.ping_samsung_tv", "on") }}
+
+    mphone_battery_charging:
+      entity_id: "device_tracker.google_maps_108665899963604670638"
+      value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.battery_charging}}"
+
+    dphone_battery_charging:
+      entity_id: "device_tracker.google_maps_106489093926417787729"
+      value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.battery_charging}}"
+
+- platform: octoprint
+  monitored_conditions:
+    - Printing
+    - Printing Error
+
+
+- platform: apcupsd
+
+# - platform: mqtt
+#   state_topic: "zanzito/dphone/device_info"
+#   name: dphone_battery_charging
+#   device_class: plug
+#   value_template: "{{ value_json.battery_charging }}"
+#
+# - platform: mqtt
+#   state_topic: zanzito/dphone/device_info
+#   name: dphone_screen_locked
+#   value_template: "{{ value_json.screen_locked }}"
+#
+# - platform: mqtt
+#   state_topic: zanzito/dphone/device_info
+#   name: dphone_screen_on
+#   value_template: "{{ value_json.screen_on }}"
+#
+#
+# - platform: mqtt
+#   state_topic: zanzito/mphone/device_info
+#   name: mphone_screen_locked
+#   value_template: "{{ value_json.screen_locked }}"
+#
+# - platform: mqtt
+#   state_topic: zanzito/mphone/device_info
+#   name: mphone_screen_on
+#   value_template: "{{ value_json.screen_on }}"
+
+# from: zanzito/dphone/device_info
+# {
+#   "time": 1514394484,
+#   "device_info": "Samsung SM-G900T (6.0.1)",
+#   "charge_type": "None",
+#   "battery_charging": false,
+#   "battery_level": 81,
+#   "current_foreground_app": "",
+#   "screen_locked": true,
+#   "screen_on": false,
+#   "screen_orientation": "Portrait",
+#   "current_wifi": "\"Bill Wi The Science Fi\"",
+#   "current_operator": "T-Mobile"
+# }
