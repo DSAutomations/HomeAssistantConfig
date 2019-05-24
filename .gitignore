@@ -9,6 +9,7 @@
 !custom_components
 !custom_components/*
 !.storage
+!scripts
 
 # Ignore folders.
 .cloud
