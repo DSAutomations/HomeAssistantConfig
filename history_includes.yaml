@@ -17,6 +17,7 @@
 - sensor.dphone_current_wifi
 - sensor.dphone_gps_accuracy
 - sensor.external_ip
+- sensor.git_latest_commit
 - sensor.if_counter_eth0_in
 - sensor.if_counter_eth0_out
 - sensor.ipad_battery_level
