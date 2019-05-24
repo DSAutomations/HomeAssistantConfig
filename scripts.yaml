@@ -1,3 +1,14 @@
+
+# Git interactions
+update_config:
+  sequence:
+      - service: shell_command.get_latest_config
+
+backup_config:
+  sequence:
+    - service: shell_command.backup_config
+
+# Sonoff commands
 restart_s1:
   sequence:
   - data:
@@ -12,13 +23,6 @@ restart_s2:
       topic: cmnd/xmas/restart
     service: mqtt.publish
 
-mphone_heartbeat:
-  sequence:
-  - service: mqtt.publish
-    data:
-      topic: zanzito/mphone/sendheartbeat
-      payload: '1'
-
 net_stats_s1:
   sequence:
   - data:
@@ -32,8 +36,3 @@ net_stats_s2:
       payload: '5'
       topic: cmnd/xmas/status
     service: mqtt.publish
-
-update_config:
-  sequence:
-      - service: shell_command.get_latest_config
-      - service: homeassistant.restart
