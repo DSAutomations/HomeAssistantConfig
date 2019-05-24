@@ -780,6 +780,61 @@
                         }
                     ],
                     "title": "Location"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entity": "script.backup_config",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:file-upload-outline",
+                                    "icon_height": "96px",
+                                    "name": "Backup Config (Git Push)",
+                                    "show_icon": true,
+                                    "show_name": true,
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "script.update_config",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:file-download-outline",
+                                    "icon_height": "96px",
+                                    "name": "Update Config (Git Pull)",
+                                    "show_icon": true,
+                                    "show_name": true,
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "columns": 1,
+                            "entities": [
+                                {
+                                    "entity": "sensor.git_latest_commit"
+                                }
+                            ],
+                            "show_icon": false,
+                            "show_name": false,
+                            "show_state": true,
+                            "title": "Currently Installed Commit",
+                            "type": "glance"
+                        }
+                    ],
+                    "panel": false,
+                    "title": "Configuration"
                 }
             ]
         }

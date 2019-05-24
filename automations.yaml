@@ -79,25 +79,35 @@
     from: 'off'
     platform: state
     to: 'on'
-- alias: Marcia Leave work message
-  action:
-  - data:
-      message: Marcia has left work
-      title: Wife Alert!
-    service: notify.d_phone
-  - data:
-      data:
-        say: ''
-      message: marcia has left work
-    service: notify.d_phone
-  condition: []
-  id: '1515015761011'
+- id: '1515015761011'
+  alias: Marcia Leave work message
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
     from: marcia_work
     platform: state
     to: Away
-- alias: Marcia arrive home message
+  condition: []
+  action:
+  - data:
+      message: Marcia has left work
+      title: Wife Alert!
+    service: notify.d_hangouts
+  - data:
+      data:
+        say: ''
+      message: marcia has left work
+    service: notify.d_phone
+- id: '1515016083115'
+  alias: Marcia arrive home message
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: Away
+    platform: state
+    to: home
+  condition:
+  - after: '16:00:00'
+    before: '22:00:00'
+    condition: time
   action:
   - data:
       data:
@@ -107,17 +117,7 @@
   - data:
       message: Marcia has arrived at home
       title: Wife Alert!
-    service: notify.d_phone
-  condition:
-  - after: '16:00:00'
-    before: '22:00:00'
-    condition: time
-  id: '1515016083115'
-  trigger:
-  - entity_id: device_tracker.google_maps_108665899963604670638
-    from: Away
-    platform: state
-    to: home
+    service: notify.d_hangouts
 - alias: Weekend iPad Charge notification
   action:
   - data:
@@ -144,10 +144,9 @@
     before: '10:00:00'
   action:
   - data:
-      message: >-
-        {{ ["Dylan", "Your husband", "Hubby"] | random}}
-        {{ ["has arrived at", "just got to", "completed his drive to"] | random }}
-        {{["work", "his place of employment", "BMS", "his job"] | random}}
+      message: '{{ ["Dylan", "Your husband", "Hubby"] | random}} {{ ["has arrived
+        at", "just got to", "completed his drive to"] | random }} {{["work", "his
+        place of employment", "BMS", "his job"] | random}}'
     service: notify.m_hangouts
 - alias: Wifi notification - D
   id: '1515016462813'
