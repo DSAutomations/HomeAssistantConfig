@@ -1,0 +1,789 @@
+{
+    "data": {
+        "config": {
+            "title": "Home Assistant",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.ssl_expiration"
+                                },
+                                {
+                                    "entity": "sensor.pi_used_space"
+                                },
+                                {
+                                    "entity": "sensor.pi_cpu_load_1"
+                                },
+                                {
+                                    "entity": "sensor.pi_cpu_load_5"
+                                },
+                                {
+                                    "entity": "sensor.pi_cpu_load_15"
+                                },
+                                {
+                                    "entity": "sensor.load_1m"
+                                },
+                                {
+                                    "entity": "sensor.load_5m"
+                                },
+                                {
+                                    "entity": "sensor.load_15m"
+                                },
+                                {
+                                    "entity": "sensor.disk_free"
+                                },
+                                {
+                                    "entity": "sensor.disk_use"
+                                },
+                                {
+                                    "entity": "sensor.last_boot"
+                                },
+                                {
+                                    "entity": "sensor.processor_use"
+                                },
+                                {
+                                    "entity": "script.update_config"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "System Telemetry",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.ipad_battery_level",
+                                "sensor.ipad_battery_state"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "iPad telemetry",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "binary_sensor.multi_samsung_tv",
+                                "binary_sensor.ping_samsung_tv",
+                                "device_tracker.samsung_tv"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Samsung TV",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.dphone_battery_level",
+                                "sensor.dphone_charge_type",
+                                "sensor.dphone_current_wifi"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Dylan's Phone",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.mphone_battery_level",
+                                    "name": "Battery Level"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Marcia's Phone",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.tstat_temp",
+                                "sensor.tstat_setpoint",
+                                "sensor.tstat_mode",
+                                "sensor.tstat_fan"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "A/C Sensors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sun.sun",
+                                "sensor.moon",
+                                "sensor.yr_symbol"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Weather Sensors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "binary_sensor.ups_online_status",
+                                "sensor.ups_battery",
+                                "sensor.ups_battery_voltage",
+                                "sensor.ups_input_voltage",
+                                "sensor.ups_load",
+                                "sensor.ups_time_left"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "APC UPS",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.octoprint_percent_done"
+                                },
+                                {
+                                    "entity": "sensor.octoprint_temp_bed"
+                                },
+                                {
+                                    "entity": "sensor.octoprint_temp_nozzle"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "OctoPrint",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "device_tracker.dylans_ipad",
+                                "device_tracker.raspberrypi",
+                                "device_tracker.ipad",
+                                "device_tracker.6837e91835c1",
+                                "device_tracker.androidb0e7dbcc837c4cae",
+                                "device_tracker.fc65de934416",
+                                "device_tracker.adminsmbp_2",
+                                "device_tracker.dylan_zanzito",
+                                "device_tracker.38f73d1189e5",
+                                "device_tracker.marcia_zanzito",
+                                "device_tracker.macbookpro",
+                                "device_tracker.androida5968e1351ce73",
+                                "device_tracker.marcia6930",
+                                "device_tracker.larrysiphone",
+                                "device_tracker.s48108",
+                                "device_tracker.dansurface",
+                                "device_tracker.nexus_player",
+                                "device_tracker.bcffeb7d7c52",
+                                "device_tracker.m_ipad",
+                                "device_tracker.hassbian",
+                                "device_tracker.dylans_galaxy_s5",
+                                "device_tracker.jesus",
+                                "device_tracker.pc00qpr1_2",
+                                "device_tracker.60f1891eabc6",
+                                "device_tracker.esp_7becce",
+                                "device_tracker.168811001993",
+                                "device_tracker.android68b44d3a33c95e19",
+                                "device_tracker.adminsmbp",
+                                "device_tracker.gateway9c7f47",
+                                "device_tracker.c03896f58227",
+                                "device_tracker.xmas3368",
+                                "device_tracker.android3e2f48d5b122aa57",
+                                "device_tracker.android7bf10d0db4e0748c",
+                                "device_tracker.marciapc",
+                                "device_tracker.macbookpro_2",
+                                "device_tracker.adminsmbp2",
+                                "device_tracker.samsung_tv",
+                                "device_tracker.pc00qpr1",
+                                "device_tracker.marcias_ipad",
+                                "device_tracker.s30465",
+                                "device_tracker.bcffeb37e52c",
+                                "device_tracker.wemos12322"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all devices",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.xmas_lights_on_15_minutes_after_sunset"
+                                },
+                                {
+                                    "entity": "automation.print_done_notifications"
+                                },
+                                {
+                                    "entity": "automation.dim_porch_strip_sunset"
+                                },
+                                {
+                                    "entity": "automation.m_get_home_meds_alert"
+                                },
+                                {
+                                    "entity": "automation.marcia_arrive_home_message"
+                                },
+                                {
+                                    "entity": "automation.update_notifications"
+                                },
+                                {
+                                    "entity": "automation.tv_off_at_8_30"
+                                },
+                                {
+                                    "entity": "automation.wifi_notification_d"
+                                },
+                                {
+                                    "entity": "automation.weekend_ipad_charge_notification"
+                                },
+                                {
+                                    "entity": "automation.lamp_on_at_sunrise"
+                                },
+                                {
+                                    "entity": "automation.xmas_lights_off_at_10_30"
+                                },
+                                {
+                                    "entity": "automation.morning_tv_power_on_notification"
+                                },
+                                {
+                                    "entity": "automation.wifi_notification_m"
+                                },
+                                {
+                                    "entity": "automation.marcia_leave_work_message"
+                                },
+                                {
+                                    "entity": "automation.m_out_at_8_30"
+                                },
+                                {
+                                    "entity": "automation.stolen_phone_warning"
+                                },
+                                {
+                                    "entity": "automation.porch_animation_speed"
+                                },
+                                {
+                                    "entity": "automation.dylan_arrives_at_work_message"
+                                },
+                                {
+                                    "entity": "automation.send_pic_to_hangouts"
+                                }
+                            ],
+                            "title": "Automation",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.mjpeg_camera",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "climate.thermostat",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                "proximity.dylan_to_work",
+                                "proximity.marcia_to_home",
+                                "proximity.dylan_to_home",
+                                "proximity.marcia_to_work"
+                            ],
+                            "title": "Proximity",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.xmas_lights",
+                                "switch.slow_stream",
+                                "switch.glass_lamp",
+                                "switch.kitchen_light"
+                            ],
+                            "title": "Switch",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.ssl_expiration"
+                                },
+                                {
+                                    "entity": "sensor.pi_used_space"
+                                },
+                                {
+                                    "entity": "sensor.pi_cpu_load_1"
+                                },
+                                {
+                                    "entity": "sensor.pi_cpu_load_5"
+                                },
+                                {
+                                    "entity": "sensor.pi_cpu_load_15"
+                                },
+                                {
+                                    "entity": "sensor.load_1m"
+                                },
+                                {
+                                    "entity": "sensor.load_5m"
+                                },
+                                {
+                                    "entity": "sensor.load_15m"
+                                },
+                                {
+                                    "entity": "sensor.disk_free"
+                                },
+                                {
+                                    "entity": "sensor.disk_use"
+                                },
+                                {
+                                    "entity": "sensor.last_boot"
+                                },
+                                {
+                                    "entity": "sensor.processor_use"
+                                },
+                                {
+                                    "entity": "script.update_config"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "System Telemetry",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.router_uptime_pretty",
+                                "sensor.router_uptime_hours",
+                                "sensor.router_uptime_minutes",
+                                "sensor.router_cpu_load_1",
+                                "sensor.router_cpu_load_5",
+                                "sensor.router_cpu_load_15",
+                                "sensor.if_counter_eth0_in",
+                                "sensor.if_counter_eth0_out"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Router stats",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.dphone_battery_level",
+                                "sensor.dphone_charge_type",
+                                "sensor.dphone_current_wifi"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Dylan's Phone",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.mphone_battery_level"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Marcia's Phone",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.jesus_battery_level",
+                                "sensor.jesus_battery_state",
+                                "sensor.ipad_battery_level",
+                                "sensor.ipad_battery_state"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "iPad telemetry",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "binary_sensor.multi_samsung_tv",
+                                "binary_sensor.ping_samsung_tv",
+                                "device_tracker.samsung_tv"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Samsung TV",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "telemetry",
+                    "title": "Device telemetry"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.tstat_temp",
+                                "sensor.tstat_setpoint",
+                                "sensor.tstat_mode",
+                                "sensor.tstat_fan"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "A/C Sensors",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sun.sun",
+                                "sensor.moon",
+                                "sensor.yr_symbol"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Weather Sensors",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.thermostat",
+                            "type": "thermostat"
+                        }
+                    ],
+                    "path": "environmental",
+                    "title": "Environmental Info"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.s1_uptime",
+                                "sensor.s1_vcc_voltage",
+                                "sensor.s1_rssi",
+                                "sensor.s1_restart_reason",
+                                "sensor.s1_hostname",
+                                "sensor.s1_ipaddress",
+                                "sensor.s1_dns",
+                                "script.net_stats_s1",
+                                "script.restart_s1"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Glass Lamp Sonoff",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.s2_uptime",
+                                "sensor.s2_vcc_voltage",
+                                "sensor.s2_rssi",
+                                "sensor.s2_restart_reason",
+                                "sensor.s2_hostname",
+                                "sensor.s2_ipaddress",
+                                "sensor.s2_dns",
+                                "script.net_stats_s2",
+                                "script.restart_s2"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "TV Sonoff",
+                            "type": "entities"
+                        }
+                    ],
+                    "path": "all_sonoffs",
+                    "title": "Sonoffs"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "detail": 2,
+                            "entity": "sensor.omg1_temp",
+                            "graph": "line",
+                            "name": "Kitchen",
+                            "type": "sensor"
+                        },
+                        {
+                            "detail": 2,
+                            "entity": "sensor.omg2_temp",
+                            "graph": "line",
+                            "name": "Outside",
+                            "type": "sensor"
+                        },
+                        {
+                            "detail": 2,
+                            "entity": "sensor.omg1_hum",
+                            "graph": "line",
+                            "name": "Kitchen Humidity",
+                            "type": "sensor"
+                        },
+                        {
+                            "detail": 2,
+                            "entity": "sensor.omg2_hum",
+                            "graph": "line",
+                            "name": "Outside Humidity",
+                            "type": "sensor"
+                        }
+                    ],
+                    "title": "Temps"
+                },
+                {
+                    "badges": [],
+                    "cards": [],
+                    "path": "led_strip",
+                    "title": "LED Strip"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.if_counter_eth0_in",
+                                "sensor.if_counter_eth0_out"
+                            ],
+                            "title": "Router I/O - 24 Hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.dphone_battery_level",
+                                    "name": "Dylan"
+                                },
+                                {
+                                    "entity": "sensor.mphone_battery_level",
+                                    "name": "Marcia"
+                                },
+                                {
+                                    "entity": "sensor.dphone_charge_type",
+                                    "name": "Dylan"
+                                },
+                                {
+                                    "entity": "binary_sensor.mphone_battery_charging",
+                                    "name": "Marcia"
+                                }
+                            ],
+                            "title": "Phone Batteries - 24 Hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.omg1_temp",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "entity": "sensor.omg2_temp",
+                                    "name": "Outside"
+                                },
+                                {
+                                    "entity": "sensor.omg3_temp",
+                                    "name": "Bedroom"
+                                }
+                            ],
+                            "hours_to_show": 48,
+                            "title": "DHT22 Temp - 48 Hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.omg1_hum",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "entity": "sensor.omg3_hum",
+                                    "name": "Bedroom"
+                                }
+                            ],
+                            "hours_to_show": 48,
+                            "title": "DHT22 Humidity - 48 Hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.omg1_temp",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "entity": "sensor.omg2_temp",
+                                    "name": "Outside"
+                                },
+                                {
+                                    "entity": "sensor.omg3_temp",
+                                    "name": "Bedroom"
+                                }
+                            ],
+                            "hours_to_show": 4,
+                            "title": "DHT22 Temp - 4 Hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.omg1_hum",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "entity": "sensor.omg3_hum",
+                                    "name": "Bedroom"
+                                }
+                            ],
+                            "hours_to_show": 4,
+                            "title": "DHT22 Humidity - 4 Hours",
+                            "type": "history-graph"
+                        }
+                    ],
+                    "path": "graphs",
+                    "title": "Graphing"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.octoprint_temp_nozzle"
+                            ],
+                            "hours_to_show": 3,
+                            "refresh_interval": 10,
+                            "title": "Hot End - Past 3 hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.octoprint_temp_bed"
+                            ],
+                            "hours_to_show": 3,
+                            "refresh_interval": 10,
+                            "title": "Hot Bed - Past 3 hours",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entity": "sensor.octoprint_percent_done",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 1,
+                                "red": 0,
+                                "yellow": 0
+                            },
+                            "theme": "default",
+                            "type": "gauge"
+                        },
+                        {
+                            "entities": [
+                                "automation.print_done_notifications"
+                            ],
+                            "title": null,
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.mjpeg_camera",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "path": "printer",
+                    "title": "Printer"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.zest",
+                                    "name": "Mid"
+                                },
+                                {
+                                    "entity": "sensor.zest_high",
+                                    "name": "High"
+                                },
+                                {
+                                    "entity": "sensor.zest_low",
+                                    "name": "Low"
+                                }
+                            ],
+                            "hours_to_show": 720,
+                            "title": "Zestimate - 30 Days",
+                            "type": "history-graph"
+                        },
+                        {
+                            "detail": 4,
+                            "entity": "sensor.zest",
+                            "graph": "line",
+                            "hours_to_show": 720,
+                            "type": "sensor"
+                        }
+                    ],
+                    "title": "Zillow"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "2",
+                            "default_zoom": 13,
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.google_maps_108665899963604670638"
+                                }
+                            ],
+                            "title": "Marcia",
+                            "type": "map"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "sensor.mphone_last_seen",
+                                    "name": "Last Seen"
+                                },
+                                {
+                                    "entity": "sensor.mphone_battery_level",
+                                    "name": "Battery Level"
+                                },
+                                {
+                                    "entity": "sensor.mphone_gps_accuracy",
+                                    "name": "GPS Accuracy"
+                                }
+                            ],
+                            "show_icon": false,
+                            "show_name": true,
+                            "show_state": true,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.mphone_address",
+                                    "name": "Address"
+                                }
+                            ],
+                            "show_icon": false,
+                            "type": "glance"
+                        },
+                        {
+                            "aspect_ratio": "2",
+                            "default_zoom": 13,
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.google_maps_106489093926417787729"
+                                }
+                            ],
+                            "title": "Dylan",
+                            "type": "map"
+                        },
+                        {
+                            "columns": 3,
+                            "entities": [
+                                {
+                                    "entity": "sensor.dphone_last_seen",
+                                    "name": "Last Seen"
+                                },
+                                {
+                                    "entity": "sensor.dphone_battery_level",
+                                    "name": "Battery Level"
+                                },
+                                {
+                                    "entity": "sensor.dphone_gps_accuracy",
+                                    "name": "GPS Accuracy"
+                                }
+                            ],
+                            "show_icon": false,
+                            "show_name": true,
+                            "show_state": true,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.dphone_address",
+                                    "name": "Address"
+                                }
+                            ],
+                            "show_icon": false,
+                            "type": "glance"
+                        }
+                    ],
+                    "title": "Location"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

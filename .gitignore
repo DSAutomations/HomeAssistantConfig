@@ -8,9 +8,9 @@
 !*.md
 !custom_components
 !custom_components/*
+!.storage
 
 # Ignore folders.
-.storage
 .cloud
 .google.token
 
