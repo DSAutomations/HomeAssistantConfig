@@ -1,0 +1,1 @@
+Home Assitant config
