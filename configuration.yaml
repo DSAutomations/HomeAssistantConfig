@@ -10,9 +10,9 @@ homeassistant:
     - type: totp
   whitelist_external_dirs:
     - /home/homeassistant/snaptmp
-  customize_glob:
-    "*.*":
-      custom_ui_state_card: state-card-custom-ui
+  # customize_glob:
+  #   "*.*":
+  #     custom_ui_state_card: state-card-custom-ui
 
 sensor: !include sensors.yaml
 group: !include groups.yaml
@@ -74,7 +74,9 @@ frontend:
     - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
   extra_html_url_es5:
     - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
-#  javascript_version: es5 #fix for iOS 10 not rendering in native app
+
+customizer:
+  custom_ui: hosted
 
 http:
   base_url: !secret base_url

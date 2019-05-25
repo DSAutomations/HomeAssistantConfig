@@ -856,26 +856,14 @@
                                     "entity": "sensor.git_latest_commit_origin",
                                     "icon": "mdi:source-commit",
                                     "name": "Origin"
+                                },
+                                {
+                                    "entity": "binary_sensor.git_hash_equal"
                                 }
                             ],
                             "show_header_toggle": false,
                             "title": "Commit Status",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "script.refresh_git_hashes",
-                            "hold_action": {
-                                "action": "none"
-                            },
-                            "icon": "mdi:refresh",
-                            "icon_height": "72px",
-                            "name": "Refresh",
-                            "show_icon": true,
-                            "show_name": true,
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "type": "entity-button"
                         }
                     ],
                     "panel": false,

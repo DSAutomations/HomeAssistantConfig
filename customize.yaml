@@ -216,8 +216,8 @@ switch.kitchen_light:
   emulated_hue_name: kitchen light
 zone.home:
   friendly_name: Home
-sensor.omg1_temp: {}
 
 binary_sensor.git_hash_equal:
+  custom_ui_state_card: state-card-custom-ui
   templates:
-    rgb_color: "if (state === 'on') return [100, 250, 120]; else return [250, 45, 45];"
+    icon_color: "if (state == 'on') return 'rgb(100, 250, 123)'; else return 'rgb(250, 100, 100)';"
