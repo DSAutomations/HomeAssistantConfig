@@ -217,3 +217,12 @@ switch.kitchen_light:
 zone.home:
   friendly_name: Home
 sensor.omg1_temp: {}
+
+binary_sensor.git_hash_equal:
+  templates:
+    rgb_color: >
+      if (state == off) {
+        return [191,27,0];
+      } else {
+        return [99,255,123];
+      }
