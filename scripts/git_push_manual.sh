@@ -8,6 +8,9 @@ cd /home/homeassistant/.homeassistant
 source /srv/homeassistant/bin/activate
 hass --script check_config
 
+# Reset any automatic local commits
+git reset --soft origin/master
+
 git add .
 git status
 echo -n "Enter the Description for the Change: " [Minor Update]

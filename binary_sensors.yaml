@@ -30,7 +30,7 @@
         - sensor.git_latest_commit_origin
       value_template: "{{ (states.sensor.git_latest_commit.state) == (states.sensor.git_latest_commit_origin.state) }}"
       icon_template: >
-        {% if states.sensor.git_latest_commit.state == true %}
+        {% if states.binary_sensor.git_hash_equal.state == on %}
           mdi:check-outline
         {% else %}
           mdi:close-outline

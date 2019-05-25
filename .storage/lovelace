@@ -791,7 +791,7 @@
                                     "hold_action": {
                                         "action": "more-info"
                                     },
-                                    "icon": "mdi:file-upload-outline",
+                                    "icon": "mdi:source-pull",
                                     "icon_height": "96px",
                                     "name": "Backup Config (Git Push)",
                                     "show_icon": true,
@@ -806,7 +806,7 @@
                                     "hold_action": {
                                         "action": "more-info"
                                     },
-                                    "icon": "mdi:file-download-outline",
+                                    "icon": "mdi:source-branch",
                                     "icon_height": "96px",
                                     "name": "Update Config (Git Pull)",
                                     "show_icon": true,
@@ -844,6 +844,23 @@
                             ],
                             "title": "Sync",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.git_latest_commit",
+                                    "icon": "mdi:source-commit-local",
+                                    "name": "Local"
+                                },
+                                {
+                                    "entity": "sensor.git_latest_commit_origin",
+                                    "icon": "mdi:source-commit",
+                                    "name": "Origin"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Commit Status",
+                            "type": "entities"
                         }
                     ],
                     "panel": false,
