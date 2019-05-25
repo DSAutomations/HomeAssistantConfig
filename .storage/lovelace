@@ -835,6 +835,15 @@
                             "show_state": true,
                             "title": "Commit Status",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.git_hash_equal"
+                                }
+                            ],
+                            "title": "Sync",
+                            "type": "glance"
                         }
                     ],
                     "panel": false,
