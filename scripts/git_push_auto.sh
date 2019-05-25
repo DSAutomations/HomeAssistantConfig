@@ -9,6 +9,9 @@
 cd /home/homeassistant/.homeassistant
 source /srv/homeassistant/bin/activate
 
+# Reset any automatic local commits
+git reset --soft origin/master
+
 git add .
 git commit -m "Auto Push triggered from UI"
 git push origin master

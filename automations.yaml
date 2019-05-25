@@ -101,13 +101,10 @@
   alias: Marcia arrive home message
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
-    from: Away
+    from: '"Away"'
     platform: state
-    to: home
-  condition:
-  - after: '16:00:00'
-    before: '22:00:00'
-    condition: time
+    to: '"home"'
+  condition: []
   action:
   - data:
       data:

@@ -146,6 +146,11 @@
   scan_interval: 300
   command: "git --git-dir /home/homeassistant/.homeassistant/.git log | awk 'NR==1{print $2}' | cut -c 1-7"
 
+- platform: command_line
+  name: git_latest_commit_origin
+  scan_interval: 300
+  command: "git --git-dir /home/homeassistant/.homeassistant/.git rev-parse origin/master | cut -c 1-7"
+
 
 # MQTT Sensors here! ###########################################################
 - platform: mqtt
