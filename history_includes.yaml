@@ -1,5 +1,6 @@
 - binary_sensor.dphone_battery_charging
 - binary_sensor.mphone_battery_charging
+- binary_sensor.git_hash_equal
 - binary_sensor.ups_online_status
 - climate.thermostat
 - device_tracker.google_maps_106489093926417787729
@@ -18,6 +19,7 @@
 - sensor.dphone_gps_accuracy
 - sensor.external_ip
 - sensor.git_latest_commit
+- sensor.git_latest_commit_origin
 - sensor.if_counter_eth0_in
 - sensor.if_counter_eth0_out
 - sensor.ipad_battery_level

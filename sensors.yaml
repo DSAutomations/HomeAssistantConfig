@@ -144,7 +144,7 @@
 - platform: command_line
   name: git_latest_commit
   scan_interval: 300
-  command: "git --git-dir /home/homeassistant/.homeassistant/.git log | awk 'NR==1{print $2}' | cut -c 1-7"
+  command: "bash /home/homeassistant/.homeassistant/scripts/git_local_commit_sensor.sh"
 
 - platform: command_line
   name: git_latest_commit_origin
