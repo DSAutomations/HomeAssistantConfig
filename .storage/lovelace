@@ -861,6 +861,21 @@
                             "show_header_toggle": false,
                             "title": "Commit Status",
                             "type": "entities"
+                        },
+                        {
+                            "entity": "script.refresh_git_hashes",
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "icon": "mdi:refresh",
+                            "icon_height": "72px",
+                            "name": "Refresh",
+                            "show_icon": true,
+                            "show_name": true,
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "type": "entity-button"
                         }
                     ],
                     "panel": false,
