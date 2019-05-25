@@ -8,6 +8,16 @@ backup_config:
   sequence:
     - service: shell_command.backup_config
 
+refresh_git_hashes:
+  sequence:
+    - service: homeassistant.update_entity
+      data:
+        entity_id:
+          - sensor.git_latest_commit
+          - sensor.git_latest_commit_origin
+          - binary_sensor.git_hash_equal
+
+
 # Sonoff commands
 restart_s1:
   sequence:
