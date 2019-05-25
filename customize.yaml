@@ -220,9 +220,4 @@ sensor.omg1_temp: {}
 
 binary_sensor.git_hash_equal:
   templates:
-    rgb_color: >
-      if (state == off) {
-        return [191,27,0];
-      } else {
-        return [99,255,123];
-      }
+    rgb_color: "if (state === 'on') return [100, 250, 120]; else return [250, 45, 45];"
