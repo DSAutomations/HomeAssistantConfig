@@ -85,7 +85,7 @@
   - entity_id: device_tracker.google_maps_108665899963604670638
     from: marcia_work
     platform: state
-    to: Away
+    to: not_home
   condition: []
   action:
   - data:
@@ -101,9 +101,9 @@
   alias: Marcia arrive home message
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
-    from: '"Away"'
+    from: not_home
     platform: state
-    to: '"home"'
+    to: home
   condition: []
   action:
   - data:
@@ -132,7 +132,7 @@
   id: '1515016084215'
   trigger:
   - entity_id: device_tracker.google_maps_106489093926417787729
-    from: Away
+    from: not_home
     platform: state
     to: dylan_work
   condition:
@@ -150,7 +150,7 @@
   trigger:
   - platform: state
     entity_id: device_tracker.google_maps_106489093926417787729
-    from: Away
+    from: not_home
     to: home
     for:
       minutes: 10

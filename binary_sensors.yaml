@@ -36,6 +36,8 @@
         {% else %}
           mdi:close-outline
         {% endif %}
+
+
 - platform: octoprint
   monitored_conditions:
     - Printing

@@ -411,6 +411,35 @@
                         },
                         {
                             "entities": [
+                                {
+                                    "entity": "sensor.omg2_temp",
+                                    "name": "Outside"
+                                },
+                                {
+                                    "entity": "sensor.omg3_temp",
+                                    "name": "Bedroom"
+                                },
+                                {
+                                    "entity": "sensor.omg1_temp",
+                                    "name": "Kitchen"
+                                },
+                                {
+                                    "entity": "sensor.tstat_setpoint"
+                                },
+                                {
+                                    "entity": "sensor.tstat_temp"
+                                }
+                            ],
+                            "hours_to_show": 6,
+                            "refresh_interval": 30,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entity": "climate.thermostat",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entities": [
                                 "sun.sun",
                                 "sensor.moon",
                                 "sensor.yr_symbol"
@@ -418,10 +447,6 @@
                             "show_header_toggle": true,
                             "title": "Weather Sensors",
                             "type": "entities"
-                        },
-                        {
-                            "entity": "climate.thermostat",
-                            "type": "thermostat"
                         }
                     ],
                     "path": "environmental",
@@ -488,13 +513,6 @@
                             "entity": "sensor.omg1_hum",
                             "graph": "line",
                             "name": "Kitchen Humidity",
-                            "type": "sensor"
-                        },
-                        {
-                            "detail": 2,
-                            "entity": "sensor.omg2_hum",
-                            "graph": "line",
-                            "name": "Outside Humidity",
                             "type": "sensor"
                         }
                     ],
@@ -700,6 +718,12 @@
                             "entities": [
                                 {
                                     "entity": "device_tracker.google_maps_108665899963604670638"
+                                },
+                                {
+                                    "entity": "zone.home"
+                                },
+                                {
+                                    "entity": "zone.elem_school"
                                 }
                             ],
                             "title": "Marcia",
@@ -777,6 +801,21 @@
                             ],
                             "show_icon": false,
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "proximity.marcia_to_home",
+                                    "name": "Marcia <--> Home"
+                                },
+                                {
+                                    "entity": "proximity.dylan_to_home",
+                                    "name": "Dylan <--> Home"
+                                }
+                            ],
+                            "hours_to_show": 3,
+                            "title": "Proximity to Home",
+                            "type": "history-graph"
                         }
                     ],
                     "title": "Location"
