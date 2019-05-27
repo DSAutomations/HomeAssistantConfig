@@ -53,7 +53,8 @@
 - sensor.ups_battery_voltage
 - sensor.ups_input_voltage
 - sensor.ups_load
-- sensor.yr_symbol
+- sensor.yrweather_symbol
+- sensor.yrweather_temperature
 - sensor.zest
 - sensor.zest_high
 - sensor.zest_low

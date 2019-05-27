@@ -1,5 +1,20 @@
 # Weather prediction
 - platform: yr
+  name: YRWeather
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+    - windSpeed
+    - pressure
+    - windDirection
+    - humidity
+    - fog
+    - cloudiness
+    - lowClouds
+    - mediumClouds
+    - highClouds
+    - dewpointTemperature
 
 # Moon phases
 - platform: moon
@@ -136,7 +151,7 @@
 
 - platform: command_line
   name: pi_cpu_temp
-  unit_of_measurement: "°C"
+  unit_of_measurement: "°C (CPU)"
   scan_interval: 15
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   value_template: "{{ ((value | float) / 1000) | round(1) }}"

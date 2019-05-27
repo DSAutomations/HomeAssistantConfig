@@ -440,9 +440,51 @@
                         },
                         {
                             "entities": [
-                                "sun.sun",
-                                "sensor.moon",
-                                "sensor.yr_symbol"
+                                {
+                                    "entity": "sun.sun"
+                                },
+                                {
+                                    "entity": "sensor.moon"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_symbol"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_temperature"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_humidity"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_pressure"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_wind_speed"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_wind_direction"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_dewpoint_temperature"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_precipitation"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_cloudiness"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_fog"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_low_clouds"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_medium_clouds"
+                                },
+                                {
+                                    "entity": "sensor.yrweather_high_clouds"
+                                }
                             ],
                             "show_header_toggle": true,
                             "title": "Weather Sensors",
@@ -533,7 +575,8 @@
                                 "sensor.if_counter_eth0_out"
                             ],
                             "title": "Router I/O - 24 Hours",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "update_interval": 10
                         },
                         {
                             "entities": [
@@ -555,7 +598,8 @@
                                 }
                             ],
                             "title": "Phone Batteries - 24 Hours",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "update_interval": 10
                         },
                         {
                             "entities": [
@@ -574,7 +618,8 @@
                             ],
                             "hours_to_show": 48,
                             "title": "DHT22 Temp - 48 Hours",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "update_interval": 10
                         },
                         {
                             "entities": [
@@ -589,7 +634,8 @@
                             ],
                             "hours_to_show": 48,
                             "title": "DHT22 Humidity - 48 Hours",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "update_interval": 10
                         },
                         {
                             "entities": [
@@ -608,7 +654,8 @@
                             ],
                             "hours_to_show": 4,
                             "title": "DHT22 Temp - 4 Hours",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "update_interval": 10
                         },
                         {
                             "entities": [
@@ -623,7 +670,8 @@
                             ],
                             "hours_to_show": 4,
                             "title": "DHT22 Humidity - 4 Hours",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "update_interval": 10
                         }
                     ],
                     "path": "graphs",
@@ -813,7 +861,7 @@
                                     "name": "Dylan <--> Home"
                                 }
                             ],
-                            "hours_to_show": 3,
+                            "hours_to_show": 6,
                             "title": "Proximity to Home",
                             "type": "history-graph"
                         }
