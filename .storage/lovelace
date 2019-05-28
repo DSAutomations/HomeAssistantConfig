@@ -562,12 +562,6 @@
                 },
                 {
                     "badges": [],
-                    "cards": [],
-                    "path": "led_strip",
-                    "title": "LED Strip"
-                },
-                {
-                    "badges": [],
                     "cards": [
                         {
                             "entities": [
