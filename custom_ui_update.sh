@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# this is the CustomUI component update script, nothing to do with HASS configuration,
+# but this script needs to be run to update the customUI (local) component
+# as of the time of writing, the configuration uses a remote configuration option
+# and the local component is not required. 
+
 function get_file {
   DOWNLOAD_PATH=${2}?raw=true
   FILE_NAME=$1
