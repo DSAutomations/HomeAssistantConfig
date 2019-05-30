@@ -399,98 +399,109 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                "sensor.tstat_temp",
-                                "sensor.tstat_setpoint",
-                                "sensor.tstat_mode",
-                                "sensor.tstat_fan"
-                            ],
-                            "show_header_toggle": true,
-                            "title": "A/C Sensors",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.omg2_temp",
-                                    "name": "Outside"
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.omg2_temp",
+                                            "name": "Outside"
+                                        },
+                                        {
+                                            "entity": "sensor.omg3_temp",
+                                            "name": "Bedroom"
+                                        },
+                                        {
+                                            "entity": "sensor.omg1_temp",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.tstat_setpoint"
+                                        },
+                                        {
+                                            "entity": "sensor.tstat_temp"
+                                        }
+                                    ],
+                                    "hours_to_show": 12,
+                                    "refresh_interval": 30,
+                                    "type": "history-graph"
                                 },
                                 {
-                                    "entity": "sensor.omg3_temp",
-                                    "name": "Bedroom"
-                                },
-                                {
-                                    "entity": "sensor.omg1_temp",
-                                    "name": "Kitchen"
-                                },
-                                {
-                                    "entity": "sensor.tstat_setpoint"
-                                },
-                                {
-                                    "entity": "sensor.tstat_temp"
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sun.sun"
+                                                },
+                                                {
+                                                    "entity": "sensor.moon"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_symbol"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_humidity"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_pressure"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_wind_speed"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_wind_direction"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_dewpoint_temperature"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_precipitation"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_cloudiness"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_fog"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_low_clouds"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_medium_clouds"
+                                                },
+                                                {
+                                                    "entity": "sensor.yrweather_high_clouds"
+                                                }
+                                            ],
+                                            "show_header_toggle": true,
+                                            "title": "Weather Sensors",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "entities": [
+                                                "sensor.tstat_temp",
+                                                "sensor.tstat_setpoint",
+                                                "sensor.tstat_mode",
+                                                "sensor.tstat_fan"
+                                            ],
+                                            "show_header_toggle": true,
+                                            "title": "A/C Sensors",
+                                            "type": "entities"
+                                        },
+                                        {
+                                            "entity": "climate.thermostat",
+                                            "type": "thermostat"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 }
                             ],
-                            "hours_to_show": 6,
-                            "refresh_interval": 30,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entity": "climate.thermostat",
-                            "type": "thermostat"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sun.sun"
-                                },
-                                {
-                                    "entity": "sensor.moon"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_symbol"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_temperature"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_humidity"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_pressure"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_wind_speed"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_wind_direction"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_dewpoint_temperature"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_precipitation"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_cloudiness"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_fog"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_low_clouds"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_medium_clouds"
-                                },
-                                {
-                                    "entity": "sensor.yrweather_high_clouds"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Weather Sensors",
-                            "type": "entities"
+                            "type": "vertical-stack"
                         }
                     ],
+                    "panel": true,
                     "path": "environmental",
                     "title": "Environmental Info"
                 },
@@ -945,6 +956,25 @@
                             "show_header_toggle": false,
                             "title": "Commit Status",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.git_hash_equal",
+                                    "name": "Sync"
+                                },
+                                {
+                                    "entity": "sensor.git_latest_commit",
+                                    "name": "Local"
+                                },
+                                {
+                                    "entity": "sensor.git_latest_commit_origin",
+                                    "name": "GitHub"
+                                }
+                            ],
+                            "title": "Phone Batteries - 24 Hours",
+                            "type": "history-graph",
+                            "update_interval": 24
                         }
                     ],
                     "panel": false,
