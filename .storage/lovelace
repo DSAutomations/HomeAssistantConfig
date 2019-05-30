@@ -972,7 +972,7 @@
                                     "name": "GitHub"
                                 }
                             ],
-                            "title": "Phone Batteries - 24 Hours",
+                            "title": "Hash History - 24 Hours",
                             "type": "history-graph",
                             "update_interval": 24
                         }
