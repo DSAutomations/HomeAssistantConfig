@@ -101,7 +101,7 @@ climate:
   username: !secret climate_login
   password: !secret climate_secret
   region: us
-  scan_interval: 600
+  scan_interval: 330
 
 # usps:
 #     username: !secret dylan_email

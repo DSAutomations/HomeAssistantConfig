@@ -421,7 +421,18 @@
                                             "entity": "sensor.tstat_temp"
                                         }
                                     ],
-                                    "hours_to_show": 12,
+                                    "hours_to_show": 13,
+                                    "refresh_interval": 30,
+                                    "type": "history-graph"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.tstat_fan",
+                                            "name": "AC"
+                                        }
+                                    ],
+                                    "hours_to_show": 13,
                                     "refresh_interval": 30,
                                     "type": "history-graph"
                                 },
