@@ -486,7 +486,7 @@
                                                     "entity": "sensor.yrweather_high_clouds"
                                                 }
                                             ],
-                                            "show_header_toggle": true,
+                                            "show_header_toggle": false,
                                             "title": "Weather Sensors",
                                             "type": "entities"
                                         },
@@ -497,7 +497,7 @@
                                                 "sensor.tstat_mode",
                                                 "sensor.tstat_fan"
                                             ],
-                                            "show_header_toggle": true,
+                                            "show_header_toggle": false,
                                             "title": "A/C Sensors",
                                             "type": "entities"
                                         },
