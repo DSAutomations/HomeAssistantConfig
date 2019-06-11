@@ -1,0 +1,15 @@
+cam1_autowb:
+  name: Auto WB
+  initial: on
+
+cam1_backlightcomp:
+  name: Backlight Compensation
+  initial: off
+
+cam1_autofocus:
+  name: Autofocus
+  initial: on
+
+cam1_exposureautopriority:
+  name: Exposure Auto Priority
+  initial: on

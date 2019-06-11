@@ -1,0 +1,83 @@
+cam1_brightness:
+  name: Brightness
+  initial: 128
+  min: 0
+  max: 255
+  step: 1
+
+cam1_contrast:
+  name: Contrast
+  initial: 128
+  min: 0
+  max: 255
+  step: 1
+
+cam1_saturation:
+  name: Saturation
+  initial: 128
+  min: 0
+  max: 255
+  step: 1
+
+cam1_gain:
+  name: Gain
+  initial: 128
+  min: 0
+  max: 255
+  step: 1
+
+cam1_focus:
+  name: Focus
+  initial: 128
+  min: 0
+  max: 250
+  step: 1
+
+cam1_wbtemp:
+  name: White Balance Temp
+  initial: 3600
+  min: 2000
+  max: 6000
+  step: 100
+
+cam1_sharpness:
+  name: Sharpness
+  initial: 128
+  min: 0
+  max: 255
+  step: 1
+
+cam1_exposuremode:
+  name: Exposure Mode
+  initial: 1
+  min: 0
+  max: 3
+  step: 1
+
+cam1_exposure:
+  name: Exposure
+  initial: 1024
+  min: 3
+  max: 2047
+  step: 1
+
+cam1_pan:
+  name: Pan
+  initial: 0
+  min: -36000
+  max: 36000
+  step: 100
+
+cam1_tilt:
+  name: Tilt
+  initial: 0
+  min: -36000
+  max: 36000
+  step: 100
+
+cam1_zoom:
+  name: Zoom
+  initial: 100
+  min: 100
+  max: 500
+  step: 1

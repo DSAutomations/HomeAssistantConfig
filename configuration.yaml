@@ -25,6 +25,8 @@ shell_command: !include shell_commands.yaml
 intent_script: !include intent_scripts.yaml
 switch: !include switches.yaml
 hangouts: !include hangouts.yaml
+input_number: !include input_number.yaml
+input_boolean: !include input_boolean.yaml
 
 map:         # Enable the map tab
 sun:         # Track the sun

@@ -3,3 +3,21 @@ backup_config: bash ~/.homeassistant/scripts/git_push_auto.sh
 take_snap_kitchen: curl -s -o /dev/null http://192.168.1.145:8080/0/action/snapshot
 grab_snap_kitchen: scp pi@192.168.1.145:~/monitor/lastsnap.jpg /home/homeassistant/snaptmp
 reboot_onefourtyfive: "ssh pi@192.168.1.145 'sudo reboot now'"
+
+set_cam1_params: "ssh pi@192.168.1.145 'bash ~/scripts/camparam.sh \
+ID09963776={{states.input_number.cam1_brightness.state | int
+  }},ID09963777={{states.input_number.cam1_contrast.state | int
+  }},ID09963778={{ states.input_number.cam1_saturation.state | int
+  }},ID09963795={{ states.input_number.cam1_gain.state | int
+  }},ID09963803={{ states.input_number.cam1_sharpness.state | int
+  }},ID10094849={{ states.input_number.cam1_exposuremode.state | int
+  }},ID10094850={{ states.input_number.cam1_exposure.state | int
+  }},ID10094856={{ states.input_number.cam1_pan.state | int
+  }},ID10094857={{ states.input_number.cam1_tilt.state | int
+  }},ID10094861={{ states.input_number.cam1_zoom.state | int
+  }},ID10094858={{ states.input_number.cam1_focus.state | int
+  }},ID09963800=2,ID09963788={%if is_state('input_boolean.cam1_autowb', 'on')%}1{%else%}0{%endif
+  %},ID09963804={%if is_state('input_boolean.cam1_backlightcomp', 'on')%}1{%else%}0{%endif
+  %},ID10094860={%if is_state('input_boolean.cam1_autofocus', 'on')%}1{%else%}0{%endif
+  %},ID10094851={%if is_state('input_boolean.cam1_exposureautopriority', 'on')%}1{%else%}0{%endif
+  %}'"

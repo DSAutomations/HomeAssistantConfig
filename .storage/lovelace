@@ -990,6 +990,88 @@
                     ],
                     "panel": false,
                     "title": "Configuration"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_number.cam1_brightness"
+                                },
+                                {
+                                    "entity": "input_number.cam1_contrast"
+                                },
+                                {
+                                    "entity": "input_number.cam1_exposure"
+                                },
+                                {
+                                    "entity": "input_number.cam1_gain"
+                                },
+                                {
+                                    "entity": "input_number.cam1_sharpness"
+                                },
+                                {
+                                    "entity": "input_number.cam1_saturation"
+                                },
+                                {
+                                    "entity": "input_number.cam1_wbtemp"
+                                },
+                                {
+                                    "entity": "input_number.cam1_zoom"
+                                },
+                                {
+                                    "entity": "input_number.cam1_tilt"
+                                },
+                                {
+                                    "entity": "input_number.cam1_pan"
+                                },
+                                {
+                                    "entity": "input_number.cam1_exposuremode"
+                                },
+                                {
+                                    "entity": "input_number.cam1_focus"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.cam1_autofocus"
+                                },
+                                {
+                                    "entity": "input_boolean.cam1_autowb"
+                                },
+                                {
+                                    "entity": "input_boolean.cam1_backlightcomp"
+                                },
+                                {
+                                    "entity": "input_boolean.cam1_exposureautopriority"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "camera.mjpeg_camera",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.mjpeg_camera",
+                            "hold_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Commit Config",
+                            "show_icon": true,
+                            "show_name": true,
+                            "tap_action": {
+                                "action": "call-service",
+                                "service": "shell_command.set_cam1_params"
+                            },
+                            "type": "entity-button"
+                        }
+                    ],
+                    "title": "Cam settings"
                 }
             ]
         }
