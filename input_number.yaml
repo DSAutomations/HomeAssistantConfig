@@ -28,7 +28,7 @@ cam1_gain:
 
 cam1_focus:
   name: Focus
-  initial: 128
+  initial: 0
   min: 0
   max: 250
   step: 1
@@ -49,7 +49,7 @@ cam1_sharpness:
 
 cam1_exposuremode:
   name: Exposure Mode
-  initial: 1
+  initial: 3
   min: 0
   max: 3
   step: 1
