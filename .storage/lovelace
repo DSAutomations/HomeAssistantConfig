@@ -502,6 +502,18 @@
                                             "type": "entities"
                                         },
                                         {
+                                            "entities": [
+                                                "sensor.omg1_temp",
+                                                "sensor.omg2_temp",
+                                                "sensor.omg3_temp",
+                                                "sensor.omg1_hum",
+                                                "sensor.omg2_hum"
+                                            ],
+                                            "show_header_toggle": false,
+                                            "title": "Live Sensors",
+                                            "type": "entities"
+                                        },
+                                        {
                                             "entity": "climate.thermostat",
                                             "type": "thermostat"
                                         }
