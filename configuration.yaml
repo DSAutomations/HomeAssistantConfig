@@ -5,35 +5,35 @@ homeassistant:
   elevation: 9
   unit_system: imperial
   time_zone: America/New_York
-  customize: !include customize.yaml
-  auth_mfa_modules:
-    - type: totp
-  whitelist_external_dirs:
-    - /home/homeassistant/snaptmp
+  # customize: !include customize.yaml
+  # auth_mfa_modules:
+  #   - type: totp
+  # whitelist_external_dirs:
+  #   - /home/homeassistant/snaptmp
   # customize_glob:
   #   "*.*":
   #     custom_ui_state_card: state-card-custom-ui
 
 sensor: !include sensors.yaml
-group: !include groups.yaml
-automation: !include automations.yaml
+# group: !include groups.yaml
+# automation: !include automations.yaml
 script: !include scripts.yaml
-notify: !include notify.yaml
+# notify: !include notify.yaml
 binary_sensor: !include binary_sensors.yaml
-zone: !include zones.yaml
-shell_command: !include shell_commands.yaml
-intent_script: !include intent_scripts.yaml
-switch: !include switches.yaml
-hangouts: !include hangouts.yaml
+# zone: !include zones.yaml
+# shell_command: !include shell_commands.yaml
+# intent_script: !include intent_scripts.yaml
+# switch: !include switches.yaml
+# hangouts: !include hangouts.yaml
 input_number: !include input_number.yaml
 input_boolean: !include input_boolean.yaml
 
 map:         # Enable the map tab
 sun:         # Track the sun
 config:      # Enables config in UI
-ios:         # Enable Support of iOS app
-alexa:       # Enable Alexa support
-apcupsd:     # Enable monitoring of APC UPS via USB
+# ios:         # Enable Support of iOS app
+# alexa:       # Enable Alexa support
+# apcupsd:     # Enable monitoring of APC UPS via USB
 logbook:     # View all events in a logbook
 
 system_health:
@@ -45,31 +45,31 @@ recorder:
   include:
     entities: !include history_includes.yaml
 
-alexa_media:
-  accounts:
-    - email: !secret amazon_email
-      password: !secret amazon_pass
-      url: amazon.com
-      exclude_devices:
-        - "Dylan's Alexa Apps"
-        - "Marcia's Alexa Apps"
-        - "This Device"
+# alexa_media:
+#   accounts:
+#     - email: !secret amazon_email
+#       password: !secret amazon_pass
+#       url: amazon.com
+#       exclude_devices:
+#         - "Dylan's Alexa Apps"
+#         - "Marcia's Alexa Apps"
+#         - "This Device"
 
 history:
   include:
     entities: !include history_includes.yaml
 
-octoprint:
-  name: Anet A8
-  host: 192.168.1.145
-  port: 5000
-  api_key: !secret octo_api
-  bed: true
-  number_of_tools: 1
+# octoprint:
+#   name: Anet A8
+#   host: 192.168.1.145
+#   port: 5000
+#   api_key: !secret octo_api
+#   bed: true
+#   number_of_tools: 1
 
-updater:  # Check for updates
-  include_used_components: true # Enable HA developer telemetry
-
+# updater:  # Check for updates
+#   include_used_components: true # Enable HA developer telemetry
+#
 frontend:
   themes: !include_dir_merge_named themes
   extra_html_url:
@@ -94,110 +94,110 @@ http:
 mqtt:
   broker: 192.168.1.222
   port: 1883
-  client_id: hass
-  username: homeassistant
-  password: !secret http_password
+  client_id: docker-test
+  username: docker
+  password: !secret mqtt_password
 
-climate:
-  platform: honeywell
-  username: !secret climate_login
-  password: !secret climate_secret
-  region: us
-  scan_interval: 330
+# climate:
+#   platform: honeywell
+#   username: !secret climate_login
+#   password: !secret climate_secret
+#   region: us
+#   scan_interval: 330
 
 # usps:
 #     username: !secret dylan_email
 #     password: !secret usps_password
 #     driver: phantomjs
 
-camera:
-  - platform: mjpeg
-    mjpeg_url: http://192.168.1.145:8081/
+# camera:
+#   - platform: mjpeg
+#     mjpeg_url: http://192.168.1.145:8081/
 
-emulated_hue:
-  host_ip: 192.168.1.222
-  expose_by_default: true
-  exposed_domains:
-    - switch
+# emulated_hue:
+#   host_ip: 192.168.1.222
+#   expose_by_default: true
+#   exposed_domains:
+#     - switch
 
-device_tracker:
-  - platform: icloud
-    username: !secret dylan_email
-    password: !secret icloud
-    account_name: Dylan's icloud
-
-  - platform: unifi_direct
-    host: 192.168.1.39
-    username: !secret unifi_un
-    password: !secret unifi_pw
-
-  - platform: mqtt_json
-    devices:
-      marcia_zanzito: zanzito/mphone/location
-      dylan_zanzito: zanzito/dphone/location
-
-  - platform: google_maps
-    username: !secret g_integration_un
-    password: !secret g_integration_pw
-    max_gps_accuracy: 500
-
-proximity:
-  dylan_to_home:
-    zone: home
-    devices:
-    - device_tracker.google_maps_106489093926417787729
-    tolerance: 50
-    unit_of_measurement: mi
-  marcia_to_home:
-    zone: home
-    devices:
-    - device_tracker.google_maps_108665899963604670638
-    tolerance: 50
-    unit_of_measurement: mi
-  dylan_to_work:
-    zone: dylan_work
-    devices:
-    - device_tracker.google_maps_106489093926417787729
-    tolerance: 50
-    unit_of_measurement: mi
-  marcia_to_work:
-    zone: marcia_work
-    devices:
-    - device_tracker.google_maps_108665899963604670638
-    tolerance: 50
-    unit_of_measurement: mi
-
-history_graph:
-  router_cpu_load:
-    name: Router CPU Load - 6 Hours
-    entities:
-      - sensor.router_cpu_load_1
-      - sensor.router_cpu_load_5
-      - sensor.router_cpu_load_15
-    hours_to_show: 6
-    refresh: 0
-  pi_cpu_load:
-    name: Pi CPU Load - 6 Hours
-    entities:
-      - sensor.pi_cpu_load_1
-      - sensor.pi_cpu_load_5
-      - sensor.pi_cpu_load_15
-    hours_to_show: 6
-    refresh: 0
-  pi_free_space:
-    name: Pi Used Space - 30 Days
-    entities:
-      - sensor.pi_used_space
-    hours_to_show: 720
-    refresh: 0
-  pi_cpu_temp:
-    name: Pi CPU Temp - 24 Hours
-    entities:
-      - sensor.pi_cpu_temp
-    hours_to_show: 24
-    refresh: 0
-
-# cloud: ## ENABLE HASS CLOUD COMPONENT ##
+# device_tracker:
+#   - platform: icloud
+#     username: !secret dylan_email
+#     password: !secret icloud
+#     account_name: Dylan's icloud
+#
+#   - platform: unifi_direct
+#     host: 192.168.1.39
+#     username: !secret unifi_un
+#     password: !secret unifi_pw
+#
+#   - platform: mqtt_json
+#     devices:
+#       marcia_zanzito: zanzito/mphone/location
+#       dylan_zanzito: zanzito/dphone/location
+#
+#   - platform: google_maps
+#     username: !secret g_integration_un
+#     password: !secret g_integration_pw
+#     max_gps_accuracy: 500
+#
+# proximity:
+#   dylan_to_home:
+#     zone: home
+#     devices:
+#     - device_tracker.google_maps_106489093926417787729
+#     tolerance: 50
+#     unit_of_measurement: mi
+#   marcia_to_home:
+#     zone: home
+#     devices:
+#     - device_tracker.google_maps_108665899963604670638
+#     tolerance: 50
+#     unit_of_measurement: mi
+#   dylan_to_work:
+#     zone: dylan_work
+#     devices:
+#     - device_tracker.google_maps_106489093926417787729
+#     tolerance: 50
+#     unit_of_measurement: mi
+#   marcia_to_work:
+#     zone: marcia_work
+#     devices:
+#     - device_tracker.google_maps_108665899963604670638
+#     tolerance: 50
+#     unit_of_measurement: mi
+#
+# history_graph:
+#   router_cpu_load:
+#     name: Router CPU Load - 6 Hours
+#     entities:
+#       - sensor.router_cpu_load_1
+#       - sensor.router_cpu_load_5
+#       - sensor.router_cpu_load_15
+#     hours_to_show: 6
+#     refresh: 0
+#   pi_cpu_load:
+#     name: Pi CPU Load - 6 Hours
+#     entities:
+#       - sensor.pi_cpu_load_1
+#       - sensor.pi_cpu_load_5
+#       - sensor.pi_cpu_load_15
+#     hours_to_show: 6
+#     refresh: 0
+#   pi_free_space:
+#     name: Pi Used Space - 30 Days
+#     entities:
+#       - sensor.pi_used_space
+#     hours_to_show: 720
+#     refresh: 0
+#   pi_cpu_temp:
+#     name: Pi CPU Temp - 24 Hours
+#     entities:
+#       - sensor.pi_cpu_temp
+#     hours_to_show: 24
+#     refresh: 0
+#
+# # cloud: ## ENABLE HASS CLOUD COMPONENT ##
 #   alexa:
 #     filter:
 #       # include_entities:
@@ -212,3 +212,4 @@ history_graph:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
+
