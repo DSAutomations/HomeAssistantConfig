@@ -42,8 +42,13 @@ system_health:
 recorder:
   purge_keep_days: 28
   purge_interval: 1
+  db_url: mysql://homeassistant:a_database_password@mariadb/homeassistantdb?charset=utf8
   include:
     entities: !include history_includes.yaml
+
+influxdb:
+  host: influxdb
+
 
 # alexa_media:
 #   accounts:
@@ -88,7 +93,7 @@ http:
   cors_allowed_origins:
     - https://google.com
     - https://home-assistant.io
-  ip_ban_enabled: True
+  ip_ban_enabled: False
   login_attempts_threshold: 5
 
 mqtt:
