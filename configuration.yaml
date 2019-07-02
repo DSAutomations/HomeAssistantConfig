@@ -98,12 +98,12 @@ mqtt:
   username: homeassistant
   password: !secret http_password
 
-# climate:
-#   platform: honeywell
-#   username: !secret climate_login
-#   password: !secret climate_secret
-#   region: us
-#   scan_interval: 330
+climate:
+  platform: honeywell
+  username: !secret climate_login
+  password: !secret climate_secret
+  region: us
+  scan_interval: 330
 
 # usps:
 #     username: !secret dylan_email
