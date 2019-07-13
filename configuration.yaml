@@ -75,6 +75,7 @@ history:
 # updater:  # Check for updates
 #   include_used_components: true # Enable HA developer telemetry
 #
+
 frontend:
   themes: !include_dir_merge_named themes
   extra_html_url:
@@ -102,6 +103,13 @@ mqtt:
   client_id: docker-test
   username: docker
   password: !secret mqtt_password
+
+device_tracker:
+  - platform: mqtt_json
+    devices:
+      dylan_zanzito: zanzito/dphone/location
+
+
 
 # climate:
 #   platform: honeywell
@@ -217,4 +225,3 @@ mqtt:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
-

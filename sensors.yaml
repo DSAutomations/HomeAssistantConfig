@@ -287,3 +287,15 @@
   unit_of_measurement: "%"
   value_template: "{{ value_json.hum }}"
 
+- platform: template
+  sensors:
+    dphone_lat:
+      value_template: "{{ states.device_tracker.dylan_zanzito.attributes.latitude }}"
+      unit_of_measurement: "deg"
+    dphone_long:
+      value_template: "{{ states.device_tracker.dylan_zanzito.attributes.longitude }}"
+      unit_of_measurement: "deg"
+    dphone_accuracy:
+      value_template: "{{ states.device_tracker.dylan_zanzito.attributes.gps_accuracy }}"
+      unit_of_measurement: "meters"
+
