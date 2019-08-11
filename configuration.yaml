@@ -134,8 +134,9 @@ device_tracker:
 
   - platform: mqtt_json
     devices:
-      marcia_zanzito: zanzito/mphone/location
+      # marcia_zanzito: zanzito/mphone/location
       dylan_zanzito: zanzito/dphone/location
+      dm_zanzito: zanzito/dmphone/location
 
   - platform: google_maps
     username: !secret g_integration_un
