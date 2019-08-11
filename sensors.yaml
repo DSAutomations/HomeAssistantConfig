@@ -36,13 +36,13 @@
   zpid:
     - !secret zillowpid
 
-- platform: apcupsd
-  resources:
-    - linev
-    - loadpct
-    - bcharge
-    - timeleft
-    - battv
+# - platform: apcupsd
+#   resources:
+#     - linev
+#     - loadpct
+#     - bcharge
+#     - timeleft
+#     - battv
 
 - platform: rest
   resource: https://api.ipify.org?format=json
@@ -319,130 +319,130 @@
   unit_of_measurement: "%"
   value_template: "{{ value_json.hum }}"
 
-# # TEMPLATE SENSORS #############################################################
-# - platform: template
-#
-#   sensors:
-#     # Dylan Phone Stuff #######################################################
-#     dphone_battery_level:
-#       value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.battery_level}}"
-#       entity_id: sensor.time
-#       unit_of_measurement: "% charge"
-#     dphone_address:
-#       value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.address}}"
-#       entity_id: sensor.time
-#     dphone_last_seen:
-#       value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_106489093926417787729.attributes.last_seen.replace(microsecond=0)}}"
-#       entity_id: sensor.time
-#     dphone_gps_accuracy:
-#       value_template: "{{ states.device_tracker.google_maps_106489093926417787729.attributes.gps_accuracy }}"
-#       entity_id: sensor.time
-#       unit_of_measurement: meters
-#
-#
-#     # Marcia Phone Stuff #######################################################
-#     mphone_battery_level:
-#       value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.battery_level}}"
-#       entity_id: sensor.time
-#       unit_of_measurement: "% charge"
-#     mphone_address:
-#       value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.address}}"
-#       entity_id: sensor.time
-#     mphone_last_seen:
-#       value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_108665899963604670638.attributes.last_seen.replace(microsecond=0)}}"
-#       entity_id: sensor.time
-#     mphone_gps_accuracy:
-#       value_template: "{{ states.device_tracker.google_maps_108665899963604670638.attributes.gps_accuracy }}"
-#       entity_id: sensor.time
-#       unit_of_measurement: meters
-#     mphone_dir_of_travel:
-#       entity_id: proximity.marcia_to_home
-#       value_template: "{{ states.proximity.marcia_to_home.attributes.dir_of_travel }}"
-#
-#     # Zillow ###################################################################
-#     zest:
-#       entity_id: sensor.zestimate
-#       value_template: "{{ states.sensor.zestimate.attributes.amount | int }}"
-#       friendly_name: Zestimate
-#       unit_of_measurement: USD
-#     zest_high:
-#       entity_id: sensor.zestimate
-#       value_template: "{{ states.sensor.zestimate.attributes.valuation_range_high | int }}"
-#       friendly_name: Zestimate High
-#       unit_of_measurement: USD
-#     zest_low:
-#       entity_id: sensor.zestimate
-#       value_template: "{{ states.sensor.zestimate.attributes.valuation_range_low | int }}"
-#       friendly_name: Zestimate Low
-#       unit_of_measurement: USD
-#
-#
-#     # Thermostat Stuff #########################################################
-#     tstat_temp:
-#       value_template: "{{ states.climate.thermostat.attributes.current_temperature }}"
-#       friendly_name: 'A/C Temp'
-#       entity_id: climate.thermostat
-#       unit_of_measurement: '°F'
-#     tstat_setpoint:
-#       value_template: '{{ states.climate.thermostat.attributes.temperature }}'
-#       friendly_name: 'A/C Set Point'
-#       entity_id: climate.thermostat
-#       unit_of_measurement: '°F'
-#     tstat_mode:
-#       value_template: '{{ states.climate.thermostat.attributes.operation_mode }}'
-#       friendly_name: 'A/C System Mode'
-#       entity_id: climate.thermostat
-#     tstat_fan:
-#       value_template: '{{ states.climate.thermostat.attributes.fan}}'
-#       friendly_name: 'A/C Fan Mode'
-#       entity_id: climate.thermostat
-#
-#     # Router Stuff #############################################################
-#     router_uptime_hours:
-#       friendly_name: Uptime Hours
-#       entity_id: sensor.router_uptime_minutes
-#       unit_of_measurement: Hours
-#       value_template: "{{ (states.sensor.router_uptime_minutes.state | int) // 60 }}"
-#     router_uptime_pretty:
-#       friendly_name: Router Uptime
-#       entity_id: sensor.router_uptime_minutes
-#       value_template: >-
-#               {% set time = (states.sensor.router_uptime_minutes.state | int) * 60 %}
-#               {% set minutes = (((states.sensor.router_uptime_minutes.state | int) % 3600) / 60) | int %}
-#               {% set hours = ((time % 86400) / 3600) | int %}
-#               {% set days = (time / 86400) | int %}
-#
-#               {%- if time < 60 -%}
-#                 Less than a minute
-#               {%- else -%}
-#                 {%- if days > 0 -%}
-#                   {%- if days == 1 -%}
-#                     1 day
-#                   {%- else -%}
-#                     {{ days }} days
-#                   {%- endif -%}
-#                 {%- endif -%}
-#                 {%- if hours > 0 -%}
-#                   {%- if days > 0 -%}
-#                     {{ ', ' }}
-#                   {%- endif -%}
-#                   {%- if hours == 1 -%}
-#                     1 hour
-#                   {%- else -%}
-#                     {{ hours }} hours
-#                   {%- endif -%}
-#                 {%- endif -%}
-#                 {%- if minutes > 0 -%}
-#                   {%- if days > 0 or hours > 0 -%}
-#                     {{ ', ' }}
-#                   {%- endif -%}
-#                   {%- if minutes == 1 -%}
-#                     1 minute
-#                   {%- else -%}
-#                     {{ minutes }} minutes
-#                   {%- endif -%}
-#                 {%- endif -%}
-#               {%- endif -%}
+# TEMPLATE SENSORS #############################################################
+- platform: template
+
+  sensors:
+    # Dylan Phone Stuff #######################################################
+    dphone_battery_level:
+      value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.battery_level}}"
+      entity_id: sensor.time
+      unit_of_measurement: "% charge"
+    dphone_address:
+      value_template: "{{states.device_tracker.google_maps_106489093926417787729.attributes.address}}"
+      entity_id: sensor.time
+    dphone_last_seen:
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_106489093926417787729.attributes.last_seen.replace(microsecond=0)}}"
+      entity_id: sensor.time
+    dphone_gps_accuracy:
+      value_template: "{{ states.device_tracker.google_maps_106489093926417787729.attributes.gps_accuracy }}"
+      entity_id: sensor.time
+      unit_of_measurement: meters
+
+
+    # Marcia Phone Stuff #######################################################
+    mphone_battery_level:
+      value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.battery_level}}"
+      entity_id: sensor.time
+      unit_of_measurement: "% charge"
+    mphone_address:
+      value_template: "{{states.device_tracker.google_maps_108665899963604670638.attributes.address}}"
+      entity_id: sensor.time
+    mphone_last_seen:
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_108665899963604670638.attributes.last_seen.replace(microsecond=0)}}"
+      entity_id: sensor.time
+    mphone_gps_accuracy:
+      value_template: "{{ states.device_tracker.google_maps_108665899963604670638.attributes.gps_accuracy }}"
+      entity_id: sensor.time
+      unit_of_measurement: meters
+    mphone_dir_of_travel:
+      entity_id: proximity.marcia_to_home
+      value_template: "{{ states.proximity.marcia_to_home.attributes.dir_of_travel }}"
+
+    # Zillow ###################################################################
+    zest:
+      entity_id: sensor.zestimate
+      value_template: "{{ states.sensor.zestimate.attributes.amount | int }}"
+      friendly_name: Zestimate
+      unit_of_measurement: USD
+    zest_high:
+      entity_id: sensor.zestimate
+      value_template: "{{ states.sensor.zestimate.attributes.valuation_range_high | int }}"
+      friendly_name: Zestimate High
+      unit_of_measurement: USD
+    zest_low:
+      entity_id: sensor.zestimate
+      value_template: "{{ states.sensor.zestimate.attributes.valuation_range_low | int }}"
+      friendly_name: Zestimate Low
+      unit_of_measurement: USD
+
+
+    # Thermostat Stuff #########################################################
+    tstat_temp:
+      value_template: "{{ states.climate.thermostat.attributes.current_temperature }}"
+      friendly_name: 'A/C Temp'
+      entity_id: climate.thermostat
+      unit_of_measurement: '°F'
+    tstat_setpoint:
+      value_template: '{{ states.climate.thermostat.attributes.temperature }}'
+      friendly_name: 'A/C Set Point'
+      entity_id: climate.thermostat
+      unit_of_measurement: '°F'
+    tstat_mode:
+      value_template: '{{ states.climate.thermostat.attributes.operation_mode }}'
+      friendly_name: 'A/C System Mode'
+      entity_id: climate.thermostat
+    tstat_fan:
+      value_template: '{{ states.climate.thermostat.attributes.fan}}'
+      friendly_name: 'A/C Fan Mode'
+      entity_id: climate.thermostat
+
+    # Router Stuff #############################################################
+    router_uptime_hours:
+      friendly_name: Uptime Hours
+      entity_id: sensor.router_uptime_minutes
+      unit_of_measurement: Hours
+      value_template: "{{ (states.sensor.router_uptime_minutes.state | int) // 60 }}"
+    router_uptime_pretty:
+      friendly_name: Router Uptime
+      entity_id: sensor.router_uptime_minutes
+      value_template: >-
+              {% set time = (states.sensor.router_uptime_minutes.state | int) * 60 %}
+              {% set minutes = (((states.sensor.router_uptime_minutes.state | int) % 3600) / 60) | int %}
+              {% set hours = ((time % 86400) / 3600) | int %}
+              {% set days = (time / 86400) | int %}
+
+              {%- if time < 60 -%}
+                Less than a minute
+              {%- else -%}
+                {%- if days > 0 -%}
+                  {%- if days == 1 -%}
+                    1 day
+                  {%- else -%}
+                    {{ days }} days
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if hours > 0 -%}
+                  {%- if days > 0 -%}
+                    {{ ', ' }}
+                  {%- endif -%}
+                  {%- if hours == 1 -%}
+                    1 hour
+                  {%- else -%}
+                    {{ hours }} hours
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if minutes > 0 -%}
+                  {%- if days > 0 or hours > 0 -%}
+                    {{ ', ' }}
+                  {%- endif -%}
+                  {%- if minutes == 1 -%}
+                    1 minute
+                  {%- else -%}
+                    {{ minutes }} minutes
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endif -%}
 
 
 

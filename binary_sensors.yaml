@@ -55,7 +55,7 @@
     - Printing Error
 
 
-- platform: apcupsd
+# - platform: apcupsd
 
 # - platform: mqtt
 #   state_topic: "zanzito/dphone/device_info"

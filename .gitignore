@@ -11,6 +11,8 @@
 !.storage
 !scripts
 !custom_ui_update.sh
+!themes/*
+!themes
 
 # Ignore folders.
 .cloud
