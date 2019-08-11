@@ -359,6 +359,23 @@
       entity_id: proximity.marcia_to_home
       value_template: "{{ states.proximity.marcia_to_home.attributes.dir_of_travel }}"
 
+    # Dameon Phone Stuff #######################################################
+    dmphone_battery_level:
+      value_template: "{{states.device_tracker.google_maps_113794264326563761353.attributes.battery_level}}"
+      entity_id: sensor.time
+      unit_of_measurement: "% charge"
+    dmphone_address:
+      value_template: "{{states.device_tracker.google_maps_113794264326563761353.attributes.address}}"
+      entity_id: sensor.time
+    dmphone_last_seen:
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_113794264326563761353.attributes.last_seen.replace(microsecond=0)}}"
+      entity_id: sensor.time
+    dmphone_gps_accuracy:
+      value_template: "{{ states.device_tracker.google_maps_113794264326563761353.attributes.gps_accuracy }}"
+      entity_id: sensor.time
+      unit_of_measurement: meters
+
+
     # Zillow ###################################################################
     zest:
       entity_id: sensor.zestimate
@@ -443,52 +460,3 @@
                   {%- endif -%}
                 {%- endif -%}
               {%- endif -%}
-
-
-
-
-# I thought this should work, but it doesn't work :(
-
-# - platform: mqtt
-#   sensors:
-#     s1_hostname:
-#       state_topic: "tele/sonoff/INFO2"
-#       value_template: "{{ value_json.Hostname }}"
-#     s1_ipaddress:
-#       state_topic: "tele/sonoff/INFO2"
-#       value_template: "{{ value_json.IPAddress }}"
-#     s1_vcc_voltage:
-#       state_topic: "tele/sonoff/STATE"
-#       value_template: "{{ value_json.Vcc }}"
-#       unit_of_measurement: "V"
-#     s1_rssi:
-#       state_topic: "tele/sonoff/STATE"
-#       value_template: "{{ value_json.Wifi.RSSI }}"
-#       unit_of_measurement: "dB"
-#     s1_uptime:
-#       state_topic: "tele/sonoff/STATE"
-#       value_template: "{{ value_json.Uptime }}"
-#     s1_restart_reason:
-#       state_topic: "tele/sonoff/INFO3"
-#       value_template: "{{ value_json.RestartReason }}"
-#
-#     s2_hostname:
-#       state_topic: "tele/xmas/INFO2"
-#       value_template: "{{ value_json.Hostname }}"
-#     s2_ipaddress:
-#       state_topic: "tele/xmas/INFO2"
-#       value_template: "{{ value_json.IPAddress }}"
-#     s2_vcc_voltage:
-#       state_topic: "tele/xmas/STATE"
-#       value_template: "{{ value_json.Vcc }}"
-#       unit_of_measurement: "V"
-#     s2_rssi:
-#       state_topic: "tele/xmas/STATE"
-#       value_template: "{{ value_json.Wifi.RSSI }}"
-#       unit_of_measurement: "dB"
-#     s2_uptime:
-#       state_topic: "tele/xmas/STATE"
-#       value_template: "{{ value_json.Uptime }}"
-#     s2_restart_reason:
-#       state_topic: "tele/xmas/INFO3"
-#       value_template: "{{ value_json.RestartReason }}"
