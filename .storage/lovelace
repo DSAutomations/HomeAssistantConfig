@@ -234,7 +234,7 @@
                             "default_zoom": 13,
                             "entities": [
                                 {
-                                    "entity": "device_tracker.google_maps_113794264326563761353"
+                                    "entity": "device_tracker.dm_zanzito"
                                 }
                             ],
                             "title": "Dameon",
