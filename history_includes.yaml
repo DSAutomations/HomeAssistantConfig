@@ -62,3 +62,5 @@
 - switch.glass_lamp
 - switch.kitchen_light
 - switch.xmas_lights
+- device_tracker.dm_zanzito
+- sensor.dmphone_battery_level
