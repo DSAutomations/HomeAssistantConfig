@@ -115,6 +115,28 @@
       message: Marcia has arrived at home
       title: Wife Alert!
     service: notify.d_hangouts
+- alias: Dameon arrive home message
+  id: '15150160845824'
+  trigger:
+  - entity_id: device_tracker.dm_zanzito
+    from: not_home
+    platform: state
+    to: home
+  condition:
+    condition: time
+    after: '16:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      message: Dameon has arrived at home
+      title: Arrival Alert!
+    service: notify.m_hangouts
 - alias: Weekend iPad Charge notification
   action:
   - data:
