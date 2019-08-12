@@ -36,7 +36,7 @@ alexa:       # Enable Alexa support
 # apcupsd:     # Enable monitoring of APC UPS via USB
 logbook:     # View all events in a logbook
 
-# system_health:
+system_health:
 #discovery:  # Discover some devices automatically
 
 recorder:
