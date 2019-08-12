@@ -79,8 +79,8 @@
     from: 'off'
     platform: state
     to: 'on'
-- id: '1515015761011'
-  alias: Marcia Leave work message
+- alias: Marcia Leave work message
+  id: '1515015761011'
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
     from: marcia_work
@@ -97,8 +97,8 @@
         say: ''
       message: marcia has left work
     service: notify.d_phone
-- id: '1515016083115'
-  alias: Marcia arrive home message
+- alias: Marcia arrive home message
+  id: '1515016083115'
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
     from: not_home
