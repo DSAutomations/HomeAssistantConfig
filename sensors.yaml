@@ -203,6 +203,11 @@
   value_template: "{{ value_json.current_wifi }}"
 
 - platform: mqtt
+  state_topic: zanzito/dmphone/location
+  name: dm_phone_last_update
+  value_template: "{{ value_json.tst | timestamp_local }}"
+
+- platform: mqtt
   state_topic: "stat/sonoff/STATUS5"
   name: s1_hostname
   value_template: "{{ value_json.StatusNET.Hostname }}"
@@ -338,6 +343,10 @@
       value_template: "{{ states.device_tracker.google_maps_106489093926417787729.attributes.gps_accuracy }}"
       entity_id: sensor.time
       unit_of_measurement: meters
+    dphone_lat:
+      value_template: "{{ states.device_tracker.google_maps_106489093926417787729.attributes.latitude | float }}"
+    dphone_lon:
+      value_template: "{{ states.device_tracker.google_maps_106489093926417787729.attributes.longitude | float }}"
 
 
     # Marcia Phone Stuff #######################################################
@@ -358,22 +367,28 @@
     mphone_dir_of_travel:
       entity_id: proximity.marcia_to_home
       value_template: "{{ states.proximity.marcia_to_home.attributes.dir_of_travel }}"
+    mphone_lat:
+      value_template: "{{ states.device_tracker.google_maps_108665899963604670638.attributes.latitude | float }}"
+    mphone_lon:
+      value_template: "{{ states.device_tracker.google_maps_108665899963604670638.attributes.longitude | float }}"
+
 
     # Dameon Phone Stuff #######################################################
     dmphone_battery_level:
-      value_template: "{{states.device_tracker.google_maps_113794264326563761353.attributes.battery_level}}"
+      value_template: "{{states.device_tracker.dm_zanzito.attributes.battery}}"
       entity_id: sensor.time
       unit_of_measurement: "% charge"
-    dmphone_address:
-      value_template: "{{states.device_tracker.google_maps_113794264326563761353.attributes.address}}"
-      entity_id: sensor.time
     dmphone_last_seen:
-      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_113794264326563761353.attributes.last_seen.replace(microsecond=0)}}"
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.dm_zanzito.last_updated.replace(microsecond=0) }}"
       entity_id: sensor.time
     dmphone_gps_accuracy:
-      value_template: "{{ states.device_tracker.google_maps_113794264326563761353.attributes.gps_accuracy }}"
+      value_template: "{{ states.device_tracker.dm_zanzito.attributes.gps_accuracy }}"
       entity_id: sensor.time
       unit_of_measurement: meters
+    dmphone_lat:
+      value_template: "{{ states.device_tracker.dm_zanzito.attributes.latitude | float }}"
+    dmphone_lon:
+      value_template: "{{ states.device_tracker.dm_zanzito.attributes.longitude | float }}"
 
 
     # Zillow ###################################################################
