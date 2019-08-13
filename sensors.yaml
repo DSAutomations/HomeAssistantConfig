@@ -421,12 +421,16 @@
       entity_id: climate.thermostat
       unit_of_measurement: '°F'
     tstat_mode:
-      value_template: '{{ states.climate.thermostat.attributes.operation_mode }}'
+      value_template: '{{ states.climate.thermostat.attributes.hvac_action }}'
       friendly_name: 'A/C System Mode'
       entity_id: climate.thermostat
-    tstat_fan:
-      value_template: '{{ states.climate.thermostat.attributes.fan}}'
+    tstat_fan_mode:
+      value_template: '{{ states.climate.thermostat.attributes.fan_mode}}'
       friendly_name: 'A/C Fan Mode'
+      entity_id: climate.thermostat
+    tstat_fan_action:
+      value_template: '{{ states.climate.thermostat.attributes.fan_action}}'
+      friendly_name: 'A/C Fan Action'
       entity_id: climate.thermostat
 
     # Router Stuff #############################################################
