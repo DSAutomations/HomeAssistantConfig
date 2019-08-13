@@ -45,7 +45,8 @@
 - sensor.router_cpu_load_15
 - sensor.router_cpu_load_5
 - sensor.router_uptime_hours
-- sensor.tstat_fan
+- sensor.tstat_fan_mode
+- sensor.tstat_fan_action
 - sensor.tstat_mode
 - sensor.tstat_setpoint
 - sensor.tstat_temp
