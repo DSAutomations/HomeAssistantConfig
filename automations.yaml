@@ -79,64 +79,6 @@
     from: 'off'
     platform: state
     to: 'on'
-- alias: Marcia Leave work message
-  id: '1515015761011'
-  trigger:
-  - entity_id: device_tracker.google_maps_108665899963604670638
-    from: marcia_work
-    platform: state
-    to: not_home
-  condition: []
-  action:
-  - data:
-      message: Marcia has left work
-      title: Wife Alert!
-    service: notify.d_hangouts
-  - data:
-      data:
-        say: ''
-      message: marcia has left work
-    service: notify.d_phone
-- alias: Marcia arrive home message
-  id: '1515016083115'
-  trigger:
-  - entity_id: device_tracker.google_maps_108665899963604670638
-    from: not_home
-    platform: state
-    to: home
-  condition: []
-  action:
-  - data:
-      data:
-        say: ''
-      message: marcia has arrived at home
-    service: notify.d_phone
-  - data:
-      message: Marcia has arrived at home
-      title: Wife Alert!
-    service: notify.d_hangouts
-- alias: Dameon arrive home message
-  id: '15150160845824'
-  trigger:
-  - entity_id: device_tracker.dm_zanzito
-    from: not_home
-    platform: state
-    to: home
-  condition:
-    condition: time
-    after: '16:00:00'
-    before: '18:00:00'
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - data:
-      message: Dameon has arrived at home
-      title: Arrival Alert!
-    service: notify.m_hangouts
 - alias: Weekend iPad Charge notification
   action:
   - data:
@@ -150,23 +92,6 @@
     from: Charging
     platform: state
     to: Full
-- alias: Dylan Arrives at Work Message
-  id: '1515016084215'
-  trigger:
-  - entity_id: device_tracker.google_maps_106489093926417787729
-    from: not_home
-    platform: state
-    to: dylan_work
-  condition:
-  - condition: time
-    after: 06:00:00
-    before: '10:00:00'
-  action:
-  - data:
-      message: '{{ ["Dylan", "Your husband", "Hubby"] | random}} {{ ["has arrived
-        at", "just got to", "completed his drive to"] | random }} {{["work", "his
-        place of employment", "BMS", "his job"] | random}}'
-    service: notify.m_hangouts
 - alias: Wifi notification - D
   id: '1515016462813'
   trigger:
@@ -347,18 +272,6 @@
     from: not_home
     platform: state
     to: home
-- alias: Test - hangouts notifications
-  action:
-  - service: notify.d_hangouts
-    data:
-      message: Marcia has arrived at home
-  condition: []
-  id: '1515016083115'
-  trigger:
-  - entity_id: device_tracker.google_maps_108665899963604670638
-    from: not_home
-    platform: state
-    to: home
 - alias: Reconnect Hangouts
   trigger:
   - entity_id: sensor.external_ip
@@ -370,3 +283,162 @@
     value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
   action:
   - service: hangouts.reconnect
+- alias: Dylan arrive work message
+  id: '1515016084215'
+  trigger:
+  - entity_id: device_tracker.google_maps_106489093926417787729
+    from: not_home
+    platform: state
+    to: dylan_work
+  condition:
+  - condition: time
+    after: 06:00:00
+    before: '10:00:00'
+  action:
+  - data:
+      message: '{{ ["Dylan", "Your husband", "Hubby"] | random}} {{ ["has arrived
+        at", "just got to", "completed his drive to"] | random }} {{["work", "his
+        place of employment", "BMS", "his job"] | random}}'
+    service: notify.m_hangouts
+- alias: Marcia leave work message
+  id: '1515015761011'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: marcia_work
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Marcia has left work
+      title: Wife Alert!
+    service: notify.d_hangouts
+  - data:
+      data:
+        say: ''
+      message: marcia has left work
+    service: notify.d_phone
+- alias: Marcia arrive home message
+  id: '1515016083115'
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    from: not_home
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      data:
+        say: ''
+      message: marcia has arrived at home
+    service: notify.d_phone
+  - data:
+      message: Marcia has arrived at home
+      title: Wife Alert!
+    service: notify.d_hangouts
+- alias: Dameon arrive home message
+  id: '00000000000028'
+  trigger:
+  - entity_id: device_tracker.dm_zanzito
+    from: not_home
+    platform: state
+    to: home
+  condition:
+    condition: time
+    after: '16:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      message: Dameon has arrived at home
+      title: Arrival Alert!
+    service: notify.md_hangouts
+- alias: Dameon arrive transfer station message
+  id: '00000000000027'
+  trigger:
+  - entity_id: device_tracker.dm_zanzito
+    platform: state
+    to: transfer_station
+  condition:
+    condition: time
+    after: '06:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      message: Dameon has arrived at transfer station
+      title: Arrival Alert!
+    service: notify.md_hangouts
+- alias: Dameon depart transfer station message
+  id: '00000000000026'
+  trigger:
+  - entity_id: device_tracker.dm_zanzito
+    platform: state
+    from: transfer_station
+  condition:
+    condition: time
+    after: '06:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      message: Dameon has departed the transfer station
+      title: Departure Alert!
+    service: notify.md_hangouts
+- alias: Dameon arrive school message
+  id: '00000000000025'
+  trigger:
+  - entity_id: device_tracker.dm_zanzito
+    platform: state
+    to: middle_school
+  condition:
+    condition: time
+    after: '06:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      message: Dameon has arrived at school
+      title: Arrival Alert!
+    service: notify.md_hangouts
+- alias: Dameon depart school message
+  id: '00000000000024'
+  trigger:
+  - entity_id: device_tracker.dm_zanzito
+    from: middle_school
+    platform: state
+  condition:
+    condition: time
+    after: '06:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      message: Dameon has left school
+      title: Departure Alert!
+    service: notify.md_hangouts
