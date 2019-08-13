@@ -45,19 +45,6 @@
     data:
       title: Message from HASS
       message: There is a new Home Assistant release available.
-- alias: Stolen Phone Warning
-  action:
-  - data:
-      message: Galaxy Epic has been detected on the wifi!!!
-      title: Stolen Phone!
-    service: notify.ios_dipad
-  condition: []
-  id: '1513895180587'
-  trigger:
-  - entity_id: device_tracker.androidb0e7dbcc837c4cae
-    from: not_home
-    platform: state
-    to: home
 - alias: Morning TV power-on notification
   action:
   - data:
@@ -79,25 +66,11 @@
     from: 'off'
     platform: state
     to: 'on'
-- alias: Weekend iPad Charge notification
-  action:
-  - data:
-      payload: Your iPad has completed charging
-      topic: zanzito/dphone/notification
-    service: mqtt.publish
-  condition: []
-  id: '1516374649072'
-  trigger:
-  - entity_id: sensor.jesus_battery_state
-    from: Charging
-    platform: state
-    to: Full
 - alias: Wifi notification - D
   id: '1515016462813'
   trigger:
   - platform: state
     entity_id: device_tracker.google_maps_106489093926417787729
-    from: not_home
     to: home
     for:
       minutes: 10
@@ -115,7 +88,6 @@
   trigger:
   - platform: state
     entity_id: device_tracker.google_maps_108665899963604670638
-    from: not_home
     to: home
     for:
       minutes: 10
@@ -133,7 +105,6 @@
   id: '1515019562814'
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
-    from: not_home
     platform: state
     to: home
   condition:
@@ -192,33 +163,6 @@
   trigger:
   - at: '20:30:00'
     platform: time
-- alias: Porch Animation Speed
-  initial_state: true
-  hide_entity: false
-  trigger:
-  - platform: state
-    entity_id: input_number.porch_animation_speed
-  action:
-  - service: mqtt.publish
-    data_template:
-      topic: cmnd/mcu1/set
-      payload: '{"transition":{{ trigger.to_state.state | int }}}'
-  id: 7f020fedaece4ea6b200f89586e3a534
-- alias: Dim porch strip @ sunset
-  action:
-  - data:
-      payload:
-        brightness: 75
-      topic: cmnd/mcu1/set
-    service: mqtt.publish
-  condition:
-  - condition: state
-    entity_id: light.porch_strip
-    state: 'ON'
-  id: '1524868776116'
-  trigger:
-  - event: sunset
-    platform: sun
 - alias: Send Pic to hangouts
   id: '1558216043893'
   trigger:
@@ -238,19 +182,7 @@
       - text: Kitchen Cam
       target:
       - id: UgwTNXte0rBn_cFSTRR4AaABAagBj8K8Dg
-- alias: Alexa TTS Test
-  id: '1556847323428'
-  trigger: []
-  condition: []
-  action:
-  - data:
-      data:
-        type: announce
-      message: I like haircuts too, can I have one?
-      target:
-      - media_player.kitchen
-    service: notify.alexa_media
-- alias: Marcia get Home Dinner Reminder
+- alias: Marcia Binder Reminder
   action:
   - delay: 00:03:00
   - service: notify.m_hangouts
@@ -269,7 +201,6 @@
   id: '1515015761593'
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
-    from: not_home
     platform: state
     to: home
 - alias: Reconnect Hangouts
@@ -287,7 +218,6 @@
   id: '1515016084215'
   trigger:
   - entity_id: device_tracker.google_maps_106489093926417787729
-    from: not_home
     platform: state
     to: dylan_work
   condition:
@@ -306,7 +236,6 @@
   - entity_id: device_tracker.google_maps_108665899963604670638
     from: marcia_work
     platform: state
-    to: not_home
   condition: []
   action:
   - data:
@@ -322,7 +251,6 @@
   id: '1515016083115'
   trigger:
   - entity_id: device_tracker.google_maps_108665899963604670638
-    from: not_home
     platform: state
     to: home
   condition: []
