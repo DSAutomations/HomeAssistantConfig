@@ -27,6 +27,11 @@
   default_conversations:
     - id: Ugz4geIs-u8jX2ZSSBB4AaABAagBgJC0AQ
 
+- name: md_hangouts
+  platform: hangouts
+  default_conversations:
+    - id: UgyQmrlcalvhuWf7Pd14AaABAQ
+
 
 # DEVICE GROUPS
 
