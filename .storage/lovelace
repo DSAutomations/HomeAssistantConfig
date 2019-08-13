@@ -36,8 +36,16 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.tstat_fan",
-                                            "name": "AC"
+                                            "entity": "sensor.tstat_fan_mode",
+                                            "name": "Fan Mode"
+                                        },
+                                        {
+                                            "entity": "sensor.tstat_fan_action",
+                                            "name": "Fan Action"
+                                        },
+                                        {
+                                            "entity": "sensor.tstat_mode",
+                                            "name": "HVAC Action"
                                         }
                                     ],
                                     "hours_to_show": 13,
@@ -103,7 +111,8 @@
                                                 "sensor.tstat_temp",
                                                 "sensor.tstat_setpoint",
                                                 "sensor.tstat_mode",
-                                                "sensor.tstat_fan"
+                                                "sensor.tstat_fan_mode",
+                                                "sensor.tstat_fan_action"
                                             ],
                                             "show_header_toggle": false,
                                             "title": "A/C Sensors",
