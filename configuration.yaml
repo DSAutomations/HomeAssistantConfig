@@ -1,10 +1,5 @@
 homeassistant:
   name: Home
-  latitude: !secret home_lat
-  longitude: !secret home_long
-  elevation: 9
-  unit_system: imperial
-  time_zone: America/New_York
   customize: !include customize.yaml
   # auth_mfa_modules:
   #   - type: totp
