@@ -1,0 +1,27 @@
+entities:
+ - sensor.dphone_lat
+ - sensor.dphone_lon
+ - sensor.dmphone_lat
+ - sensor.dmphone_lon
+ - sensor.mphone_lat
+ - sensor.mphone_lon
+ - sensor.omg1_hum
+ - sensor.omg1_temp
+ - sensor.omg2_hum
+ - sensor.omg2_temp
+ - sensor.omg3_hum
+ - sensor.omg3_temp
+ - sensor.pi_cpu_load_1
+ - sensor.pi_cpu_load_15
+ - sensor.pi_cpu_load_5
+ - sensor.router_cpu_load_1
+ - sensor.router_cpu_load_15
+ - sensor.router_cpu_load_5
+ - sensor.tstat_setpoint
+ - sensor.tstat_temp
+ - sensor.dphone_gps_accuracy
+ - sensor.mphone_gps_accuracy
+ - sensor.dmphone_gps_accuracy
+ - sensor.dmphone_battery_level
+ - sensor.dphone_battery_level
+ - sensor.mphone_battery_level

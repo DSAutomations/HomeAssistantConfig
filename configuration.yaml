@@ -41,6 +41,10 @@ recorder:
   include:
     entities: !include history_includes.yaml
 
+influxdb:
+  host: 127.0.0.1
+  include: !include influx_includes.yaml
+
 alexa_media:
   accounts:
     - email: !secret amazon_email
