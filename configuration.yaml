@@ -141,6 +141,10 @@ device_tracker:
     username: !secret g_integration_un
     max_gps_accuracy: 500
 
+  - platform: google_maps
+    username: !secret g_integration_un2
+    max_gps_accuracy: 500
+
 proximity:
   dylan_to_home:
     zone: home
