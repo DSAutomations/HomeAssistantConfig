@@ -5,6 +5,14 @@
   name: ping_samsung_tv
   host: 192.168.1.46
 
+- platform: ping
+  name: ping_wii
+  host: wii
+
+- platform: ping
+  name: ping_xbox
+  host: 192.168.1.143
+
 - platform: template
   sensors:
     multi_samsung_tv:
@@ -53,6 +61,24 @@
   monitored_conditions:
     - Printing
     - Printing Error
+
+
+- platform: mqtt
+  state_topic: "omgateways/OMG1/HCSR501toMQTT/hcsr501"
+  payload_on: "true"
+  payload_off: "false"
+  name: motion_kitchen
+  device_class: motion
+
+- platform: mqtt
+  state_topic: "omgateways/OMG3/HCSR501toMQTT/hcsr501"
+  payload_on: "true"
+  payload_off: "false"
+  name: motion_bedroom
+  device_class: motion
+
+
+
 
 
 # - platform: apcupsd
