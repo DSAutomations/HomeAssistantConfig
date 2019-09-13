@@ -182,27 +182,27 @@
       - text: Kitchen Cam
       target:
       - id: UgwTNXte0rBn_cFSTRR4AaABAagBj8K8Dg
-- alias: Marcia Binder Reminder
-  action:
-  - delay: 00:03:00
-  - service: notify.m_hangouts
-    data:
-      message: Check Binders
+- id: '1515015761593'
+  alias: Marcia Binder Reminder
+  trigger:
+  - entity_id: device_tracker.google_maps_108665899963604670638
+    platform: state
+    to: home
   condition:
-    condition: time
-    after: '14:00:00'
+  - after: '14:00:00'
     before: '18:00:00'
+    condition: time
     weekday:
     - mon
     - tue
     - wed
     - thu
     - fri
-  id: '1515015761593'
-  trigger:
-  - entity_id: device_tracker.google_maps_108665899963604670638
-    platform: state
-    to: home
+  action:
+  - delay: 00:03:00
+  - data:
+      message: Check Binders & EDSBY
+    service: notify.m_hangouts
 - alias: Reconnect Hangouts
   trigger:
   - entity_id: sensor.external_ip
@@ -265,9 +265,9 @@
       title: Wife Alert!
     service: notify.d_hangouts
 - alias: Dameon arrive home message
-  id: '00000000000028'
+  id: 00000000000028
   trigger:
-  - entity_id: device_tracker.dm_zanzito
+  - entity_id: device_tracker.dmphone_gs5
     platform: state
     to: home
   condition:
@@ -288,12 +288,12 @@
 - alias: Dameon arrive transfer station message
   id: '00000000000027'
   trigger:
-  - entity_id: device_tracker.dm_zanzito
+  - entity_id: device_tracker.dmphone_gs5
     platform: state
     to: transfer_station
   condition:
     condition: time
-    after: '06:00:00'
+    after: 06:00:00
     before: '18:00:00'
     weekday:
     - mon
@@ -309,12 +309,12 @@
 - alias: Dameon depart transfer station message
   id: '00000000000026'
   trigger:
-  - entity_id: device_tracker.dm_zanzito
+  - entity_id: device_tracker.dmphone_gs5
     platform: state
     from: transfer_station
   condition:
     condition: time
-    after: '06:00:00'
+    after: 06:00:00
     before: '18:00:00'
     weekday:
     - mon
@@ -330,12 +330,12 @@
 - alias: Dameon arrive school message
   id: '00000000000025'
   trigger:
-  - entity_id: device_tracker.dm_zanzito
+  - entity_id: device_tracker.dmphone_gs5
     platform: state
     to: middle_school
   condition:
     condition: time
-    after: '06:00:00'
+    after: 06:00:00
     before: '18:00:00'
     weekday:
     - mon
@@ -351,12 +351,12 @@
 - alias: Dameon depart school message
   id: '00000000000024'
   trigger:
-  - entity_id: device_tracker.dm_zanzito
+  - entity_id: device_tracker.dmphone_gs5
     from: middle_school
     platform: state
   condition:
     condition: time
-    after: '06:00:00'
+    after: 06:00:00
     before: '18:00:00'
     weekday:
     - mon
