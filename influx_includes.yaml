@@ -1,6 +1,8 @@
 entities:
  - sensor.dphone_lat
  - sensor.dphone_lon
+ - sensor.dphone_own_lat
+ - sensor.dphone_own_lon
  - sensor.dmphone_lat
  - sensor.dmphone_lon
  - sensor.mphone_lat
@@ -25,3 +27,7 @@ entities:
  - sensor.dmphone_battery_level
  - sensor.dphone_battery_level
  - sensor.mphone_battery_level
+ - binary_sensor.motion_kitchen
+ - binary_sensor.motion_bedroom
+ - sensor.if_counter_eth0_in
+ - sensor.if_counter_eth0_out

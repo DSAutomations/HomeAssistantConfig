@@ -2,6 +2,10 @@
 - binary_sensor.mphone_battery_charging
 - binary_sensor.git_hash_equal
 - binary_sensor.ups_online_status
+- binary_sensor.motion_kitchen
+- binary_sensor.motion_bedroom
+- binary_sensor.ping_wii
+- binary_sensor.ping_xbox
 - climate.thermostat
 - device_tracker.google_maps_106489093926417787729
 - device_tracker.google_maps_108665899963604670638
