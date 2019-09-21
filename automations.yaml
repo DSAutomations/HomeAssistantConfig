@@ -267,7 +267,7 @@
 - alias: Dameon arrive home message
   id: 00000000000028
   trigger:
-  - entity_id: device_tracker.dmphone_gs5
+  - entity_id: device_tracker.google_maps_113794264326563761353
     platform: state
     to: home
   condition:
@@ -288,7 +288,7 @@
 - alias: Dameon arrive transfer station message
   id: '00000000000027'
   trigger:
-  - entity_id: device_tracker.dmphone_gs5
+  - entity_id: device_tracker.google_maps_113794264326563761353
     platform: state
     to: transfer_station
   condition:
@@ -309,7 +309,7 @@
 - alias: Dameon depart transfer station message
   id: '00000000000026'
   trigger:
-  - entity_id: device_tracker.dmphone_gs5
+  - entity_id: device_tracker.google_maps_113794264326563761353
     platform: state
     from: transfer_station
   condition:
@@ -330,7 +330,7 @@
 - alias: Dameon arrive school message
   id: '00000000000025'
   trigger:
-  - entity_id: device_tracker.dmphone_gs5
+  - entity_id: device_tracker.google_maps_113794264326563761353
     platform: state
     to: middle_school
   condition:
@@ -351,7 +351,7 @@
 - alias: Dameon depart school message
   id: '00000000000024'
   trigger:
-  - entity_id: device_tracker.dmphone_gs5
+  - entity_id: device_tracker.google_maps_113794264326563761353
     from: middle_school
     platform: state
   condition:
