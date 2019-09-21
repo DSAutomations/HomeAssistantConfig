@@ -30,9 +30,15 @@ ios:         # Enable Support of iOS app
 alexa:       # Enable Alexa support
 # apcupsd:     # Enable monitoring of APC UPS via USB
 logbook:     # View all events in a logbook
+mobile_app:  # enable mobile app integration
 
 system_health:
 #discovery:  # Discover some devices automatically
+
+weather:
+  - platform: nws
+    api_key: "dev@nstraub.com"
+    station: TPA
 
 recorder:
   purge_keep_days: 28
@@ -84,7 +90,7 @@ http:
   base_url: !secret base_url
   server_port: 8123
   use_x_forwarded_for: true
-  trusted_proxies: 127.0.0.1
+  trusted_proxies: 172.19.0.3 # NGINX docker ip
   cors_allowed_origins:
     - https://google.com
     - https://home-assistant.io
@@ -135,7 +141,6 @@ device_tracker:
     devices:
       # marcia_zanzito: zanzito/mphone/location
       dylan_zanzito: zanzito/dphone/location
-      dm_zanzito: zanzito/dmphone/location
 
   - platform: google_maps
     username: !secret g_integration_un
