@@ -1,20 +1,3 @@
-# Weather prediction
-- platform: yr
-  name: YRWeather
-  monitored_conditions:
-    - temperature
-    - symbol
-    - precipitation
-    - windSpeed
-    - pressure
-    - windDirection
-    - humidity
-    - fog
-    - cloudiness
-    - lowClouds
-    - mediumClouds
-    - highClouds
-    - dewpointTemperature
 
 # Moon phases
 - platform: moon
@@ -375,20 +358,23 @@
 
     # Dameon Phone Stuff #######################################################
     dmphone_battery_level:
-      value_template: "{{states.device_tracker.dm_zanzito.attributes.battery}}"
+      value_template: "{{states.device_tracker.dmphone_gs5.attributes.battery_level}}"
       entity_id: sensor.time
       unit_of_measurement: "% charge"
+    dmphone_address:
+      value_template: "{{states.device_tracker.google_maps_113794264326563761353.attributes.address}}"
+      entity_id: sensor.time
     dmphone_last_seen:
-      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.dm_zanzito.last_updated.replace(microsecond=0) }}"
+      value_template: "{{ now().replace(microsecond=0) - states.device_tracker.google_maps_113794264326563761353.attributes.last_seen.replace(microsecond=0) }}"
       entity_id: sensor.time
     dmphone_gps_accuracy:
-      value_template: "{{ states.device_tracker.dm_zanzito.attributes.gps_accuracy }}"
+      value_template: "{{ states.device_tracker.google_maps_113794264326563761353.attributes.gps_accuracy }}"
       entity_id: sensor.time
       unit_of_measurement: meters
     dmphone_lat:
-      value_template: "{{ states.device_tracker.dm_zanzito.attributes.latitude | float }}"
+      value_template: "{{ states.device_tracker.google_maps_113794264326563761353.attributes.latitude | float }}"
     dmphone_lon:
-      value_template: "{{ states.device_tracker.dm_zanzito.attributes.longitude | float }}"
+      value_template: "{{ states.device_tracker.google_maps_113794264326563761353.attributes.longitude | float }}"
 
 
     # Zillow ###################################################################
